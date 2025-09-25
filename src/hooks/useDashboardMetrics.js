@@ -4,7 +4,7 @@ import {
   getRevenueSnapshot,
   getTrustSafetyPulse,
   getSystemHealth,
-} from "../data/metrics.service";
+} from "../Data/metrics.service";
 
 export default function useDashboardMetrics() {
   const [exec, setExec] = useState(null);
