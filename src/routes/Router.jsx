@@ -9,7 +9,7 @@ import ProductsOrdersCatalog from "../Pages/ProductsOrdersCatalog";
 import PaymentsPayoutsFinance from "../Pages/PaymentsPayoutsFinance";
 import MessagingNotificationsCMS from "../Pages/MessagingNotificationsCMS";
 import AnalyticsLoyaltySettings from "../Pages/AnalyticsLoyaltySettings";
-import LoginPage from "../pages/Auth/Login";
+import Login from "../pages/Auth/Login";
 import NotFound from "../pages/NotFound";
 
 const Router = createBrowserRouter([
@@ -30,7 +30,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "/auth/login",
-    element: <LoginPage />,
+    element: <Login />,
   },
 ]);
 
