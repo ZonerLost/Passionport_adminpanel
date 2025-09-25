@@ -20,8 +20,7 @@ import CMSBlockEditorDrawer from "../Components/messaging/cms/CMSBlockEditorDraw
 import SegmentsTable from "../Components/messaging/segments/SegmentsTable";
 import SegmentBuilder from "../Components/messaging/segments/SegmentBuilder";
 
-// Logs
-import LogsFiltersBar from "../Components/messaging/logs/LogsFiltersBar";
+// Delivery logs table (keeps original import)
 import DeliveryLogsTable from "../Components/messaging/logs/DeliveryLogsTable";
 
 // Hooks
@@ -31,12 +30,79 @@ import useCMS from "../hooks/useCMS";
 import useSegments from "../hooks/useSegments";
 import useLogs from "../hooks/useLogs";
 
+/*
+  Fix: LogsFiltersBar was missing (case/casing/path or file not present).
+  Provide a small local replacement so the page builds reliably.
+  If you prefer to keep a dedicated component file, create:
+  src/Components/messaging/logs/LogsFiltersBar.jsx and remove the local component below.
+*/
+function LogsFiltersBar({
+  filters = {},
+  onSearch,
+  onChannel,
+  onStatus,
+  onExport,
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <label className="sr-only" htmlFor="logs-search">
+        Search logs
+      </label>
+      <input
+        id="logs-search"
+        type="search"
+        placeholder="Search logs..."
+        defaultValue={filters.query || ""}
+        onChange={(e) => onSearch?.(e.target.value)}
+        className="h-9 rounded-md px-3 bg-[#0F1014] text-sm text-white border"
+        style={{ borderColor: "rgba(110,86,207,0.12)" }}
+        aria-label="Search delivery logs"
+      />
+
+      <select
+        defaultValue={filters.channel || ""}
+        onChange={(e) => onChannel?.(e.target.value)}
+        className="h-9 rounded-md px-2 bg-[#0F1014] text-sm text-white border"
+        style={{ borderColor: "rgba(110,86,207,0.12)" }}
+        aria-label="Filter by channel"
+      >
+        <option value="">All channels</option>
+        <option value="email">Email</option>
+        <option value="push">Push</option>
+        <option value="sms">SMS</option>
+      </select>
+
+      <select
+        defaultValue={filters.status || ""}
+        onChange={(e) => onStatus?.(e.target.value)}
+        className="h-9 rounded-md px-2 bg-[#0F1014] text-sm text-white border"
+        style={{ borderColor: "rgba(110,86,207,0.12)" }}
+        aria-label="Filter by status"
+      >
+        <option value="">All statuses</option>
+        <option value="delivered">Delivered</option>
+        <option value="failed">Failed</option>
+        <option value="queued">Queued</option>
+      </select>
+
+      <button
+        type="button"
+        onClick={() => onExport?.()}
+        className="h-9 px-3 rounded-md bg-gradient-to-r from-[#6E56CF] to-[#8B7BFF] text-white text-sm"
+        aria-label="Export logs"
+      >
+        Export
+      </button>
+    </div>
+  );
+}
+
 export default function MessagingNotificationsCMS() {
   const [tab, setTab] = useState("templates");
 
-  // hooks
+  // hooks (use optional chaining to avoid runtime crashes during build)
   const templates = useTemplates?.("all") ?? {};
-  const loyalty = useTemplates?.("loyalty") ?? {}; // re-use, category pre-filtered
+  const loyalty = useTemplates?.("loyalty") ?? {};
   const ann = useAnnouncements?.() ?? {};
   const cms = useCMS?.() ?? {};
   const seg = useSegments?.() ?? {};
@@ -127,7 +193,7 @@ export default function MessagingNotificationsCMS() {
         </SectionCard>
       )}
 
-      {/* Loyalty (reuses Templates with category=loyalty) */}
+      {/* Loyalty */}
       {tab === "loyalty" && (
         <SectionCard
           title="Loyalty & Streaks Communications"
