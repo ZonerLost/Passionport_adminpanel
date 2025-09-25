@@ -1,0 +1,17 @@
+export const mapUser = (u) => ({
+  id: u.id,
+  name: u.name,
+  handle: u.handle,
+  email: u.email,
+  phone: u.phone,
+  type: u.type,
+  role: u.role,
+  status: u.status,
+  createdAt: u.createdAt,
+  orders: u.orders,
+  backings: u.backings,
+  clubs: u.clubs,
+  strikes: u.strikes,
+  devices: u.devices,
+  sessions: u.sessions,
+});
