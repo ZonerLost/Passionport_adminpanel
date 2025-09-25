@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import LeftSidebar from "../components/ui/section/LeftSidebar";
-import Header from "../components/ui/section/Header";
+import Header from "../Components/ui/section/Header";
+import LeftSidebar from "../Components/ui/section/LeftSidebar";
 
 const COLORS = {
   bg: "#0B0B0F", // Onyx (app background)
