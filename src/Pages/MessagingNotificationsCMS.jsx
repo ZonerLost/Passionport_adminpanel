@@ -1,3 +1,4 @@
+// ...existing code...
 import React, { useState } from "react";
 import SectionCard from "../Components/ui/common/SectionCard";
 
@@ -34,12 +35,12 @@ export default function MessagingNotificationsCMS() {
   const [tab, setTab] = useState("templates");
 
   // hooks
-  const templates = useTemplates("all");
-  const loyalty = useTemplates("loyalty"); // re-use, category pre-filtered
-  const ann = useAnnouncements();
-  const cms = useCMS();
-  const seg = useSegments();
-  const logs = useLogs();
+  const templates = useTemplates?.("all") ?? {};
+  const loyalty = useTemplates?.("loyalty") ?? {}; // re-use, category pre-filtered
+  const ann = useAnnouncements?.() ?? {};
+  const cms = useCMS?.() ?? {};
+  const seg = useSegments?.() ?? {};
+  const logs = useLogs?.() ?? {};
 
   return (
     <div className="p-4 md:p-6 space-y-4">
@@ -75,11 +76,11 @@ export default function MessagingNotificationsCMS() {
           action={
             <TemplateFiltersBar
               filters={templates.filters}
-              onSearch={templates.actions.setQuery}
-              onEvent={templates.actions.setEvent}
-              onChannel={templates.actions.setChannel}
-              onCategory={templates.actions.setCategory}
-              onExport={templates.actions.exportCSV}
+              onSearch={templates.actions?.setQuery}
+              onEvent={templates.actions?.setEvent}
+              onChannel={templates.actions?.setChannel}
+              onCategory={templates.actions?.setCategory}
+              onExport={templates.actions?.exportCSV}
             />
           }
         >
@@ -88,17 +89,17 @@ export default function MessagingNotificationsCMS() {
           ) : (
             <TemplatesTable
               data={templates}
-              onPage={templates.actions.setPage}
-              onOpen={templates.actions.open}
+              onPage={templates.actions?.setPage}
+              onOpen={templates.actions?.open}
             />
           )}
           <TemplateEditorDrawer
             open={!!templates.selected}
             template={templates.selected}
-            onClose={templates.actions.close}
-            onSave={templates.actions.save}
-            onRollback={templates.actions.rollback}
-            onTest={templates.actions.test}
+            onClose={templates.actions?.close}
+            onSave={templates.actions?.save}
+            onRollback={templates.actions?.rollback}
+            onTest={templates.actions?.test}
           />
         </SectionCard>
       )}
@@ -111,17 +112,17 @@ export default function MessagingNotificationsCMS() {
           ) : (
             <AnnouncementsTable
               data={ann}
-              onPage={ann.actions.setPage}
-              onOpen={ann.actions.open}
+              onPage={ann.actions?.setPage}
+              onOpen={ann.actions?.open}
             />
           )}
           <AnnouncementEditorDrawer
             open={!!ann.selected}
             announcement={ann.selected}
             segments={seg.rows}
-            onClose={ann.actions.close}
-            onSave={ann.actions.save}
-            onSchedule={ann.actions.schedule}
+            onClose={ann.actions?.close}
+            onSave={ann.actions?.save}
+            onSchedule={ann.actions?.schedule}
           />
         </SectionCard>
       )}
@@ -133,11 +134,11 @@ export default function MessagingNotificationsCMS() {
           action={
             <TemplateFiltersBar
               filters={loyalty.filters}
-              onSearch={loyalty.actions.setQuery}
-              onEvent={loyalty.actions.setEvent}
-              onChannel={loyalty.actions.setChannel}
-              onCategory={loyalty.actions.setCategory}
-              onExport={loyalty.actions.exportCSV}
+              onSearch={loyalty.actions?.setQuery}
+              onEvent={loyalty.actions?.setEvent}
+              onChannel={loyalty.actions?.setChannel}
+              onCategory={loyalty.actions?.setCategory}
+              onExport={loyalty.actions?.exportCSV}
             />
           }
         >
@@ -146,17 +147,17 @@ export default function MessagingNotificationsCMS() {
           ) : (
             <TemplatesTable
               data={loyalty}
-              onPage={loyalty.actions.setPage}
-              onOpen={loyalty.actions.open}
+              onPage={loyalty.actions?.setPage}
+              onOpen={loyalty.actions?.open}
             />
           )}
           <TemplateEditorDrawer
             open={!!loyalty.selected}
             template={loyalty.selected}
-            onClose={loyalty.actions.close}
-            onSave={loyalty.actions.save}
-            onRollback={loyalty.actions.rollback}
-            onTest={loyalty.actions.test}
+            onClose={loyalty.actions?.close}
+            onSave={loyalty.actions?.save}
+            onRollback={loyalty.actions?.rollback}
+            onTest={loyalty.actions?.test}
           />
         </SectionCard>
       )}
@@ -168,9 +169,9 @@ export default function MessagingNotificationsCMS() {
           action={
             <CMSFiltersBar
               filters={cms.filters}
-              onSearch={cms.actions.setQuery}
-              onLocation={cms.actions.setLocation}
-              onStatus={cms.actions.setStatus}
+              onSearch={cms.actions?.setQuery}
+              onLocation={cms.actions?.setLocation}
+              onStatus={cms.actions?.setStatus}
             />
           }
         >
@@ -179,16 +180,16 @@ export default function MessagingNotificationsCMS() {
           ) : (
             <CMSBlocksTable
               data={cms}
-              onPage={cms.actions.setPage}
-              onOpen={cms.actions.open}
-              onTogglePublish={cms.actions.publish}
+              onPage={cms.actions?.setPage}
+              onOpen={cms.actions?.open}
+              onTogglePublish={cms.actions?.publish}
             />
           )}
           <CMSBlockEditorDrawer
             open={!!cms.selected}
             block={cms.selected}
-            onClose={cms.actions.close}
-            onSave={cms.actions.save}
+            onClose={cms.actions?.close}
+            onSave={cms.actions?.save}
           />
         </SectionCard>
       )}
@@ -202,17 +203,17 @@ export default function MessagingNotificationsCMS() {
             ) : (
               <SegmentsTable
                 rows={seg.rows}
-                onOpen={seg.actions.open}
-                onRemove={seg.actions.remove}
+                onOpen={seg.actions?.open}
+                onRemove={seg.actions?.remove}
               />
             )}
           </SectionCard>
           <SegmentBuilder
             open={!!seg.selected}
             segment={seg.selected}
-            onClose={seg.actions.close}
-            onSave={seg.actions.save}
-            onEstimate={seg.actions.estimate}
+            onClose={seg.actions?.close}
+            onSave={seg.actions?.save}
+            onEstimate={seg.actions?.estimate}
           />
         </>
       )}
@@ -224,17 +225,17 @@ export default function MessagingNotificationsCMS() {
           action={
             <LogsFiltersBar
               filters={logs.filters}
-              onSearch={logs.actions.setQuery}
-              onChannel={logs.actions.setChannel}
-              onStatus={logs.actions.setStatus}
-              onExport={logs.actions.exportCSV}
+              onSearch={logs.actions?.setQuery}
+              onChannel={logs.actions?.setChannel}
+              onStatus={logs.actions?.setStatus}
+              onExport={logs.actions?.exportCSV}
             />
           }
         >
           {logs.loading ? (
             <Skeleton h={200} />
           ) : (
-            <DeliveryLogsTable data={logs} onPage={logs.actions.setPage} />
+            <DeliveryLogsTable data={logs} onPage={logs.actions?.setPage} />
           )}
         </SectionCard>
       )}
@@ -254,3 +255,4 @@ function Skeleton({ h = 140 }) {
     />
   );
 }
+// ...existing code...
