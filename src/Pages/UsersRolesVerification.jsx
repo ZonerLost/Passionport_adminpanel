@@ -1,10 +1,12 @@
+// ...existing code...
 import React, { useState } from "react";
 import SectionCard from "../Components/ui/common/SectionCard";
 import Pagination from "../Components/ui/common/Pagination";
 import FiltersBar from "../Components/UsersPage/FiltersBar";
-import DirectoryTable from "../components/UsersPage/DirectoryTable";
-import UserProfileDrawer from "../components/UsersPage/UserProfileDrawer";
-import RolePermissionManager from "../components/UsersPage/RolePermissionManager";
+// fixed import casing to match filesystem (Components with capital C)
+import DirectoryTable from "../Components/UsersPage/DirectoryTable";
+import UserProfileDrawer from "../Components/UsersPage/UserProfileDrawer";
+import RolePermissionManager from "../Components/UsersPage/RolePermissionManager";
 import KycQueue from "../Components/UsersPage/KycQueue";
 import useUsersDirectory from "../hooks/useUsersDirectory";
 import useRoles from "../hooks/useRoles";
@@ -19,7 +21,7 @@ export default function UsersRolesVerification() {
 
   async function handleAction(fnName, user, args) {
     const map = dir.actions;
-    if (!map[fnName]) return;
+    if (!map || !map[fnName]) return;
     const res = await map[fnName](
       user.id,
       args?.role || args?.days || args?.reason
@@ -33,7 +35,7 @@ export default function UsersRolesVerification() {
       a.click();
       URL.revokeObjectURL(url);
     }
-    await dir.actions.reload();
+    if (dir.actions.reload) await dir.actions.reload();
   }
 
   // Roles state/actions
@@ -74,10 +76,10 @@ export default function UsersRolesVerification() {
           action={
             <FiltersBar
               filters={dir.filters}
-              onSearch={dir.actions.setQuery}
-              onType={dir.actions.setType}
-              onRole={dir.actions.setRole}
-              onStatus={dir.actions.setStatus}
+              onSearch={dir.actions?.setQuery}
+              onType={dir.actions?.setType}
+              onRole={dir.actions?.setRole}
+              onStatus={dir.actions?.setStatus}
             />
           }
         >
@@ -101,7 +103,7 @@ export default function UsersRolesVerification() {
                   page={dir.page}
                   total={dir.total}
                   pageSize={dir.pageSize}
-                  onPage={dir.actions.setPage}
+                  onPage={dir.actions?.setPage}
                 />
               </div>
             </>
@@ -143,3 +145,4 @@ export default function UsersRolesVerification() {
     </div>
   );
 }
+// ...existing code...
