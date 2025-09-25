@@ -7,7 +7,7 @@ import {
   bulkUpdateProducts,
   exportCatalogCSV,
   brands,
-} from "../data/catalog.service";
+} from "../Data/catalog.service";
 
 export default function useCatalog() {
   const [filters, setFilters] = useState({

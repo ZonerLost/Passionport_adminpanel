@@ -4,7 +4,7 @@ import {
   rollbackUpdate,
   scheduleUpdate,
   setBackerOnlyVisibility,
-} from "../data/campaigns.service";
+} from "../Data/campaigns.service";
 
 export default function useUpdateReview(campaign, refresh) {
   const list = useMemo(

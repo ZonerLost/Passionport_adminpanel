@@ -8,7 +8,7 @@ import {
   reship,
   contact,
   exportOrdersCSV,
-} from "../data/catalog.service";
+} from "../Data/catalog.service";
 
 export default function useOrders() {
   const [filters, setFilters] = useState({ query: "", status: "all" });

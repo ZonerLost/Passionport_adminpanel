@@ -4,7 +4,7 @@ import {
   approveKyc,
   rejectKyc,
   requestMoreDocs,
-} from "../data/kyc.service";
+} from "../Data/kyc.service";
 
 export default function useKycQueue() {
   const [status, setStatus] = useState("all");
@@ -14,13 +14,15 @@ export default function useKycQueue() {
   const [loading, setLoading] = useState(true);
 
   async function load() {
-    setRes(await fetchKycQueue({ status, page, pageSize }));
+    setLoading(true);
+    const data = await fetchKycQueue({ status, page, pageSize });
+    setRes(data);
     setLoading(false);
   }
+
   useEffect(() => {
-    setLoading(true);
     load();
-  }, [status, page, pageSize]);
+  }, [status, page, pageSize]); // ✅ removed "loading"
 
   return {
     ...res,
@@ -31,5 +33,6 @@ export default function useKycQueue() {
     rejectKyc,
     requestMoreDocs,
     reload: load,
+    loading,
   };
 }

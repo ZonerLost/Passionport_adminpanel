@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchCampaignById, pinTestimonial } from "../data/campaigns.service";
+import { fetchCampaignById, pinTestimonial } from "../Data/campaigns.service";
 
 export default function useCampaignDetail(id) {
   const [data, setData] = useState(null);

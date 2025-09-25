@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchRoles, updateRolePermissions } from "../data/roles.service";
+import { fetchRoles, updateRolePermissions } from "../Data/roles.service";
 
 export default function useRoles() {
   const [roles, setRoles] = useState([]);

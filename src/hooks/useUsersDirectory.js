@@ -9,7 +9,7 @@ import {
   signOutAllDevices,
   exportUserData,
   deleteUser,
-} from "../data/users.service";
+} from "../Data/users.service";
 
 export default function useUsersDirectory() {
   const [query, setQuery] = useState("");

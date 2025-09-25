@@ -4,7 +4,7 @@ import {
   saveDiscount,
   deleteDiscount,
   brands,
-} from "../data/catalog.service";
+} from "../Data/catalog.service";
 
 export default function useDiscounts() {
   const [rows, setRows] = useState([]);

@@ -6,7 +6,7 @@ import {
   releaseHold,
   schedulePayout,
   exportPayoutsCSV,
-} from "../data/finance.service";
+} from "../Data/finance.service";
 
 export default function usePayouts() {
   const [filters, setFilters] = useState({ query: "", kyc: "all" });

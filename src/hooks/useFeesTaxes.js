@@ -8,7 +8,7 @@ import {
   deleteTax,
   fetchInvoiceSettings,
   saveInvoiceSettings,
-} from "../data/finance.service";
+} from "../Data/finance.service";
 
 export default function useFeesTaxes() {
   const [fees, setFees] = useState([]);

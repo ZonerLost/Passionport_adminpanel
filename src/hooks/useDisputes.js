@@ -3,9 +3,8 @@ import {
   fetchDisputes,
   getDispute,
   uploadEvidence,
-  closeDispute,
   exportDisputesCSV,
-} from "../data/finance.service";
+} from "../Data/finance.service";
 
 export default function useDisputes() {
   const [filters, setFilters] = useState({ query: "", status: "all" });
@@ -36,10 +35,6 @@ export default function useDisputes() {
       close: () => setSelected(null),
       evidence: async (id, file) => {
         await uploadEvidence(id, { name: file.name, size: file.size });
-        await load();
-      },
-      close: async (id, outcome) => {
-        await closeDispute(id, outcome);
         await load();
       },
       exportCSV: async () => {

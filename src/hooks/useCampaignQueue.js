@@ -8,7 +8,7 @@ import {
   terminateCampaign,
   assignModerator,
   bulkApprove,
-} from "../data/campaigns.service";
+} from "../Data/campaigns.service";
 
 export default function useCampaignQueue() {
   const [query, setQuery] = useState("");
