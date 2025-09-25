@@ -1,7 +1,7 @@
+// ...existing code...
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MdMenu, MdSearch, MdNotificationsNone } from "react-icons/md";
-
 
 const COLORS = {
   bg: "#0B0B0F",
@@ -14,7 +14,7 @@ const COLORS = {
   ring: "rgba(110,86,207,0.35)",
 };
 
-export default function Header({ onMenuClick }) {
+export default function Header({ onMenuClick = () => {} }) {
   const { pathname } = useLocation();
   const pageName =
     pathname === "/"
@@ -72,6 +72,7 @@ export default function Header({ onMenuClick }) {
               size={16}
               className="absolute left-3 top-1/2 -translate-y-1/2"
               style={{ color: COLORS.text2 }}
+              aria-hidden="true"
             />
             <input
               type="text"
@@ -82,6 +83,7 @@ export default function Header({ onMenuClick }) {
                 color: COLORS.text,
                 border: `1px solid ${COLORS.ring}`,
               }}
+              aria-label="Search"
             />
             <kbd
               className="absolute right-3 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
@@ -97,7 +99,7 @@ export default function Header({ onMenuClick }) {
             title="Notifications"
             style={{ color: COLORS.text, backgroundColor: "transparent" }}
           >
-            <div className="relative">
+            <div className="relative" aria-hidden="true">
               <MdNotificationsNone size={18} />
               <span
                 className="absolute -top-1 -right-1 h-2.5 w-2.5 rounded-full"
