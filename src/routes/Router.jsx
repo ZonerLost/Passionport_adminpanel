@@ -1,3 +1,4 @@
+// ...existing code...
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
@@ -9,8 +10,9 @@ import ProductsOrdersCatalog from "../Pages/ProductsOrdersCatalog";
 import PaymentsPayoutsFinance from "../Pages/PaymentsPayoutsFinance";
 import MessagingNotificationsCMS from "../Pages/MessagingNotificationsCMS";
 import AnalyticsLoyaltySettings from "../Pages/AnalyticsLoyaltySettings";
-import Login from "../pages/Auth/Login";
-import NotFound from "../pages/NotFound";
+// FIXED: correct import casing to match filesystem
+import Login from "../Pages/Auth/Login";
+import NotFound from "../Pages/NotFound";
 
 const Router = createBrowserRouter([
   {
@@ -35,3 +37,4 @@ const Router = createBrowserRouter([
 ]);
 
 export default Router;
+// ...existing code...
