@@ -20,22 +20,7 @@ import CMSBlockEditorDrawer from "../Components/messaging/cms/CMSBlockEditorDraw
 import SegmentsTable from "../Components/messaging/segments/SegmentsTable";
 import SegmentBuilder from "../Components/messaging/segments/SegmentBuilder";
 
-// Delivery logs table (keeps original import)
-import DeliveryLogsTable from "../Components/messaging/logs/DeliveryLogsTable";
-
-// Hooks
-import useTemplates from "../hooks/useTemplates";
-import useAnnouncements from "../hooks/useAnnouncements";
-import useCMS from "../hooks/useCMS";
-import useSegments from "../hooks/useSegments";
-import useLogs from "../hooks/useLogs";
-
-/*
-  Fix: LogsFiltersBar was missing (case/casing/path or file not present).
-  Provide a small local replacement so the page builds reliably.
-  If you prefer to keep a dedicated component file, create:
-  src/Components/messaging/logs/LogsFiltersBar.jsx and remove the local component below.
-*/
+// Logs filters - local fallback (keeps build stable if shared component is missing)
 function LogsFiltersBar({
   filters = {},
   onSearch,
@@ -97,10 +82,105 @@ function LogsFiltersBar({
   );
 }
 
+// DeliveryLogsTable fallback (used if the real component is not present on disk)
+// Accepts `data` shaped like { rows: [], page, total, pageSize, actions: { setPage } }
+function DeliveryLogsTable({ data = {}, onPage }) {
+  const rows = data.rows || [];
+  if (!rows.length) {
+    return (
+      <div className="text-sm text-[#A3A7B7] p-6">
+        No delivery logs available.
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="overflow-x-auto rounded-lg border"
+      style={{ borderColor: "rgba(110,86,207,0.08)" }}
+    >
+      <table className="w-full text-sm">
+        <thead className="text-left text-xs text-[#9DA1B5] uppercase">
+          <tr>
+            <th className="px-3 py-2">Time</th>
+            <th className="px-3 py-2">Channel</th>
+            <th className="px-3 py-2">Recipient</th>
+            <th className="px-3 py-2">Status</th>
+            <th className="px-3 py-2">Message</th>
+          </tr>
+        </thead>
+        <tbody className="text-white">
+          {rows.map((r, i) => (
+            <tr
+              key={r.id || i}
+              className={i % 2 === 0 ? "bg-[#0F1014]" : "bg-[#0B0B0F]"}
+            >
+              <td className="px-3 py-2 align-top">
+                {r.time || r.createdAt || "-"}
+              </td>
+              <td className="px-3 py-2 align-top">{r.channel || "-"}</td>
+              <td className="px-3 py-2 align-top">
+                {r.to || r.recipient || "-"}
+              </td>
+              <td className="px-3 py-2 align-top">
+                <span
+                  className={`px-2 py-0.5 rounded text-xs ${
+                    r.status === "delivered"
+                      ? "bg-green-800"
+                      : r.status === "failed"
+                      ? "bg-red-800"
+                      : "bg-gray-700"
+                  }`}
+                >
+                  {r.status || "-"}
+                </span>
+              </td>
+              <td className="px-3 py-2 align-top text-[#A3A7B7]">
+                {r.message?.slice?.(0, 120) || r.summary || "-"}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* simple pager if actions provided */}
+      {data.total > data.pageSize && (
+        <div className="flex items-center justify-end gap-2 p-3 text-sm text-[#9DA1B5]">
+          <button
+            onClick={() => onPage?.(Math.max(1, (data.page || 1) - 1))}
+            className="px-2 py-1 rounded border"
+            style={{ borderColor: "rgba(110,86,207,0.08)" }}
+          >
+            Prev
+          </button>
+          <span>
+            Page {data.page || 1} /{" "}
+            {Math.ceil((data.total || 0) / (data.pageSize || 25))}
+          </span>
+          <button
+            onClick={() => onPage?.((data.page || 1) + 1)}
+            className="px-2 py-1 rounded border"
+            style={{ borderColor: "rgba(110,86,207,0.08)" }}
+          >
+            Next
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Hooks
+import useTemplates from "../hooks/useTemplates";
+import useAnnouncements from "../hooks/useAnnouncements";
+import useCMS from "../hooks/useCMS";
+import useSegments from "../hooks/useSegments";
+import useLogs from "../hooks/useLogs";
+
 export default function MessagingNotificationsCMS() {
   const [tab, setTab] = useState("templates");
 
-  // hooks (use optional chaining to avoid runtime crashes during build)
+  // defensive hook usage so build/runtime don't crash if hooks return undefined
   const templates = useTemplates?.("all") ?? {};
   const loyalty = useTemplates?.("loyalty") ?? {};
   const ann = useAnnouncements?.() ?? {};
@@ -301,6 +381,7 @@ export default function MessagingNotificationsCMS() {
           {logs.loading ? (
             <Skeleton h={200} />
           ) : (
+            // use the fallback DeliveryLogsTable above
             <DeliveryLogsTable data={logs} onPage={logs.actions?.setPage} />
           )}
         </SectionCard>
