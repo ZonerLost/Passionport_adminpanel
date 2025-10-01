@@ -1,5 +1,5 @@
-const ROLES = ["Admin", "Support", "Finance", "Moderator", "BrandOwner"];
-const TYPES = ["Fan", "Brand", "Admin"];
+const ROLES = ["Admin", "Fan", "BrandOwner"];
+const TYPES = ["Fan", "Brand"];
 const STATUSES = ["active", "suspended", "banned", "pending"];
 
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];

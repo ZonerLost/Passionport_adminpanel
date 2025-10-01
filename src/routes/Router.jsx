@@ -1,4 +1,3 @@
-// ...existing code...
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/DashboardLayout";
@@ -37,4 +36,3 @@ const Router = createBrowserRouter([
 ]);
 
 export default Router;
-// ...existing code...

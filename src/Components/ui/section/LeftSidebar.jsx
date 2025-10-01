@@ -27,9 +27,9 @@ const COLORS = {
 const menuItems = [
   { icon: MdDashboard, label: "Dashboard", path: "/" },
   { icon: MdPeople, label: "Users & Memberships", path: "/users-memberships" },
-  { icon: MdLibraryBooks, label: "Campaigns", path: "/content" },
-  { icon: MdEvent, label: "Content & messaging", path: "/live-events" },
-  { icon: MdLocalOffer, label: "Catalog & Partners (PTM)", path: "/deals" },
+  // { icon: MdLibraryBooks, label: "Campaigns", path: "/content" },
+  // { icon: MdEvent, label: "Content & messaging", path: "/live-events" },
+  // { icon: MdLocalOffer, label: "Catalog & Partners (PTM)", path: "/deals" },
   {
     icon: MdSupervisedUserCircle,
     label: "Finance & Payments",
@@ -80,7 +80,7 @@ export default function LeftSidebar({ isOpen, setIsOpen }) {
             <img
               src="/assets/Logo.png"
               alt="Logo"
-              className="h-12 object-contain filter invert"
+              className="h-12"
             />
           </div>
 

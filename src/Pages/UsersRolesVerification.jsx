@@ -1,148 +1,171 @@
-// ...existing code...
-import React, { useState } from "react";
-import SectionCard from "../Components/ui/common/SectionCard";
-import Pagination from "../Components/ui/common/Pagination";
-import FiltersBar from "../Components/UsersPage/FiltersBar";
-// fixed import casing to match filesystem (Components with capital C)
+import React from "react";
 import DirectoryTable from "../Components/UsersPage/DirectoryTable";
-import UserProfileDrawer from "../Components/UsersPage/UserProfileDrawer";
-import RolePermissionManager from "../Components/UsersPage/RolePermissionManager";
-import KycQueue from "../Components/UsersPage/KycQueue";
+import UserDrawer from "../Components/UsersPage/UserDrawer";
 import useUsersDirectory from "../hooks/useUsersDirectory";
-import useRoles from "../hooks/useRoles";
-import useKycQueue from "../hooks/useKycQueue";
 
 export default function UsersRolesVerification() {
-  const [tab, setTab] = useState("directory");
-
-  // Directory state/actions
   const dir = useUsersDirectory();
-  const [selected, setSelected] = useState(null);
 
-  async function handleAction(fnName, user, args) {
-    const map = dir.actions;
-    if (!map || !map[fnName]) return;
-    const res = await map[fnName](
-      user.id,
-      args?.role || args?.days || args?.reason
-    );
-    // If export, prompt download
-    if (fnName === "exportUserData" && res instanceof Blob) {
-      const url = URL.createObjectURL(res);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${user.handle}_data.json`;
-      a.click();
-      URL.revokeObjectURL(url);
+  // Drawer state
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [editing, setEditing] = React.useState(null);
+
+  // Search + filters
+  const [q, setQ] = React.useState("");
+  const [role, setRole] = React.useState("all");
+  const [type, setType] = React.useState("all");
+
+  // Derived rows with client-side filtering (safe even if API has no filters)
+  const filtered = React.useMemo(() => {
+    const needle = q.trim().toLowerCase();
+    return (dir.rows || []).filter((u) => {
+      const matchesQ =
+        !needle ||
+        [u.name, u.email, u.handle].some((v) =>
+          String(v || "").toLowerCase().includes(needle)
+        );
+
+      const matchesRole =
+        role === "all" || String(u.role || "").toLowerCase() === role;
+      const matchesType =
+        type === "all" || String(u.type || "").toLowerCase() === type;
+
+      return matchesQ && matchesRole && matchesType;
+    });
+  }, [dir.rows, q, role, type]);
+
+  // Row actions coming from the table (kebab menu)
+  function onAction(action, user) {
+    if (action === "edit") {
+      setEditing(user);
+      setDrawerOpen(true);
     }
-    if (dir.actions.reload) await dir.actions.reload();
+    if (action === "delete") {
+      handleDelete(user);
+    }
   }
 
-  // Roles state/actions
-  const roles = useRoles();
+  // Toolbar handlers
+  function handleAdd() {
+    setEditing(null);
+    setDrawerOpen(true);
+  }
 
-  // KYC state/actions
-  const kyc = useKycQueue();
+  // Create/Update/Delete using your dir.actions mapping if available
+  async function handleCreate(payload) {
+    if (dir.actions?.createUser) {
+      await dir.actions.createUser(payload);
+    }
+    setDrawerOpen(false);
+    setEditing(null);
+    if (dir.actions?.reload) await dir.actions.reload();
+  }
+
+  async function handleUpdate(payload) {
+    if (editing?.id && dir.actions?.updateUser) {
+      await dir.actions.updateUser(editing.id, payload);
+    }
+    setDrawerOpen(false);
+    setEditing(null);
+    if (dir.actions?.reload) await dir.actions.reload();
+  }
+
+  async function handleDelete(user) {
+    if (dir.actions?.deleteUser) {
+      await dir.actions.deleteUser(user.id);
+    }
+    if (dir.actions?.reload) await dir.actions.reload();
+  }
+
+  // Collect distinct role/type options from data for filter dropdowns
+  const roleOptions = React.useMemo(() => {
+    const set = new Set();
+    (dir.rows || []).forEach(
+      (u) => u?.role && set.add(String(u.role).toLowerCase())
+    );
+    return ["all", ...Array.from(set).sort()];
+  }, [dir.rows]);
+
+  const typeOptions = React.useMemo(() => {
+    const set = new Set();
+    (dir.rows || []).forEach(
+      (u) => u?.type && set.add(String(u.type).toLowerCase())
+    );
+    return ["all", ...Array.from(set).sort()];
+  }, [dir.rows]);
+
+  if (dir.loading) {
+    return (
+      <div
+        className="h-40 rounded-xl animate-pulse"
+        style={{
+          background: "linear-gradient(90deg,#0e1016,#11131a,#0e1016)",
+          backgroundSize: "200% 100%",
+        }}
+      />
+    );
+  }
 
   return (
     <div className="p-4 md:p-6 space-y-4">
-      {/* Tabs */}
-      <nav className="flex items-center gap-2 text-sm">
-        {[
-          ["directory", "Directory"],
-          ["roles", "Roles & Permissions"],
-          ["kyc", "Verification / KYC"],
-        ].map(([key, label]) => (
+      {/* Toolbar: Title, Add, Search & Filters */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="text-white text-lg font-semibold">Users</h2>
+
+        <div className="flex flex-col sm:flex-row gap-2 sm:items-center">
+          <div className="flex items-center gap-2">
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Search name, handle, email…"
+              className="w-[220px] rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(110,86,207,0.35)]"
+            />
+            <select
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white"
+            >
+              {roleOptions.map((r) => (
+                <option key={r} value={r}>
+                  Role: {r}
+                </option>
+              ))}
+            </select>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              className="rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white"
+            >
+              {typeOptions.map((t) => (
+                <option key={t} value={t}>
+                  Type: {t}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <button
-            key={key}
-            onClick={() => setTab(key)}
-            className={`h-9 px-3 rounded-lg border ${
-              tab === key ? "text-white" : "text-slate-300"
-            }`}
-            style={{
-              borderColor: "rgba(110,86,207,0.25)",
-              background: tab === key ? "#0F1118" : "transparent",
-            }}
+            onClick={handleAdd}
+            className="px-4 py-2 rounded-lg bg-[#6E56CF] text-white hover:bg-[#5b47b5]"
           >
-            {label}
+            Add New
           </button>
-        ))}
-      </nav>
+        </div>
+      </div>
 
-      {/* Directory */}
-      {tab === "directory" && (
-        <SectionCard
-          title="Users Directory"
-          action={
-            <FiltersBar
-              filters={dir.filters}
-              onSearch={dir.actions?.setQuery}
-              onType={dir.actions?.setType}
-              onRole={dir.actions?.setRole}
-              onStatus={dir.actions?.setStatus}
-            />
-          }
-        >
-          {dir.loading ? (
-            <div
-              className="h-40 rounded-xl animate-pulse"
-              style={{
-                background: "linear-gradient(90deg,#0e1016,#11131a,#0e1016)",
-                backgroundSize: "200% 100%",
-              }}
-            />
-          ) : (
-            <>
-              <DirectoryTable
-                rows={dir.rows}
-                onSelect={setSelected}
-                onAction={handleAction}
-              />
-              <div className="mt-3">
-                <Pagination
-                  page={dir.page}
-                  total={dir.total}
-                  pageSize={dir.pageSize}
-                  onPage={dir.actions?.setPage}
-                />
-              </div>
-            </>
-          )}
-          <UserProfileDrawer
-            open={!!selected}
-            user={selected}
-            onClose={() => setSelected(null)}
-          />
-        </SectionCard>
-      )}
+      {/* Table */}
+      <DirectoryTable rows={filtered} onSelect={() => {}} onAction={onAction} />
 
-      {/* Roles & Permissions */}
-      {tab === "roles" && (
-        <RolePermissionManager roles={roles.roles} onUpdate={roles.update} />
-      )}
-
-      {/* KYC Queue */}
-      {tab === "kyc" && (
-        <KycQueue
-          data={kyc}
-          status={kyc.status}
-          setStatus={kyc.setStatus}
-          onApprove={async (id) => {
-            await kyc.approveKyc(id);
-            kyc.reload();
-          }}
-          onReject={async (id) => {
-            await kyc.rejectKyc(id);
-            kyc.reload();
-          }}
-          onRequestDocs={async (id) => {
-            await kyc.requestMoreDocs(id, "Please upload bank statement");
-            kyc.reload();
-          }}
-          onPage={kyc.setPage}
-        />
-      )}
+      {/* Drawer for Add/Edit */}
+      <UserDrawer
+        open={drawerOpen}
+        onClose={() => {
+          setDrawerOpen(false);
+          setEditing(null);
+        }}
+        initial={editing}
+        onSubmit={(data) => (editing ? handleUpdate(data) : handleCreate(data))}
+      />
     </div>
   );
 }
-// ...existing code...
