@@ -18,7 +18,7 @@ export default function BrandsTable({ rows, onOpen }) {
             <th className="px-3 py-2 w-20 text-right">Actions</th>
           </tr>
         </thead>
-        <tbody className="divide-y" style={{ borderColor: DIV }}>
+        <tbody className="divide-y divide-[rgb(80,49,25)]">
           {rows.map((b) => (
             <tr key={b.id} className="hover:bg-white/5">
               <td className="px-3 py-2 text-slate-200">{b.name}</td>

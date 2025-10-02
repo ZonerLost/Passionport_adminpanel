@@ -41,7 +41,7 @@ const menuItems = [
     label: "Finance & Payments",
     path: "/finance",
   },
-  { icon: MdCampaign, label: "Messaging & Community", path: "/messaging" },
+  { icon: MdCampaign, label: "Announcements", path: "/messaging" },
   {
     icon: MdSettings,
     label: "Support & Settings",

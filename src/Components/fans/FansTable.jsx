@@ -39,7 +39,7 @@ export default function FansTable({ rows = [], onOpen }) {
                 <span
                   className={`px-2 py-1 rounded-full text-xs font-medium ${
                     r.status === "banned"
-                      ? "text-red-400"
+                      ? "rgb(226, 105, 0)"
                       : r.status === "suspended"
                       ? "text-yellow-300"
                       : "text-green-300"
@@ -53,8 +53,9 @@ export default function FansTable({ rows = [], onOpen }) {
               </td>
               <td className="px-4 py-3 text-right">
                 <button
+                  className="text-xs underline"
+                  style={{ color: "#e2e8f0" }}
                   onClick={() => onOpen?.(r.id)}
-                  className="text-sm font-medium text-purple-300"
                 >
                   View
                 </button>
