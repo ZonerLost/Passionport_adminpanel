@@ -33,7 +33,7 @@ export default function CampaignsTable({
           className="h-8 px-3 rounded-lg border text-xs"
           onClick={() => onApprove(selectedIds)}
           disabled={!selectedIds.length}
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         >
           Bulk Approve
         </button>
@@ -41,7 +41,7 @@ export default function CampaignsTable({
           className="h-8 px-3 rounded-lg border text-xs"
           onClick={() => onReject(selectedIds)}
           disabled={!selectedIds.length}
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         >
           Bulk Reject
         </button>
@@ -75,7 +75,7 @@ export default function CampaignsTable({
               <th className="px-3 py-2 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {data.rows.map((row) => (
               <tr key={row.id} className="hover:bg-white/5">
                 <td className="px-3 py-2">

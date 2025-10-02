@@ -48,7 +48,7 @@ export default function LoyaltyEditor({
               key={t.id || i}
               className="rounded-lg border p-3 grid grid-cols-2 gap-2"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -58,7 +58,7 @@ export default function LoyaltyEditor({
                   className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
                   defaultValue={t.name}
                   onChange={bind("tiers", i, "name")}
-                  style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                  style={{ borderColor: "rgba(255,122,0,0.25)" }}
                 />
               </label>
               <label className="text-xs text-slate-400">
@@ -68,7 +68,7 @@ export default function LoyaltyEditor({
                   className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
                   defaultValue={t.min}
                   onChange={bind("tiers", i, "min")}
-                  style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                  style={{ borderColor: "rgba(255,122,0,0.25)" }}
                 />
               </label>
             </div>
@@ -84,7 +84,7 @@ export default function LoyaltyEditor({
               key={r.id || i}
               className="rounded-lg border p-3 text-sm"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -94,7 +94,7 @@ export default function LoyaltyEditor({
                 defaultValue={r.points}
                 onChange={bind("rules", i, "points")}
                 className="h-8 w-full rounded border text-gray-400 bg-transparent px-2 text-sm"
-                style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                style={{ borderColor: "rgba(255,122,0,0.25)" }}
               />
             </label>
           ))}
@@ -107,7 +107,7 @@ export default function LoyaltyEditor({
           <label
             className="rounded-lg border p-3 text-sm"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >
@@ -126,7 +126,7 @@ export default function LoyaltyEditor({
           <label
             className="rounded-lg border text-gray-400 p-3 text-sm"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >
@@ -141,13 +141,13 @@ export default function LoyaltyEditor({
                 }))
               }
               className="h-8 w-full rounded border text-gray-400 bg-transparent px-2 text-sm"
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
           <label
             className="rounded-lg border p-3 text-sm"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >
@@ -161,7 +161,7 @@ export default function LoyaltyEditor({
                 }))
               }
               className="h-8 w-full rounded border text-gray-400 bg-transparent px-2 text-sm"
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             >
               <option value="extra-share">Extra Share</option>
               <option value="bonus-back">Bonus Back</option>
@@ -178,7 +178,7 @@ export default function LoyaltyEditor({
               key={c.id || i}
               className="rounded-lg border p-3 grid grid-cols-2 gap-2"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -188,7 +188,7 @@ export default function LoyaltyEditor({
                   className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
                   defaultValue={c.name}
                   onChange={bind("challenges", i, "name")}
-                  style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                  style={{ borderColor: "rgba(255,122,0,0.25)" }}
                 />
               </label>
               <label className="text-xs text-slate-400">
@@ -197,7 +197,7 @@ export default function LoyaltyEditor({
                   className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
                   defaultValue={c.badge}
                   onChange={bind("challenges", i, "badge")}
-                  style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                  style={{ borderColor: "rgba(255,122,0,0.25)" }}
                 />
               </label>
             </div>

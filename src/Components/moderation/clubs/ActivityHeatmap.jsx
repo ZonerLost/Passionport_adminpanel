@@ -16,7 +16,7 @@ export default function ActivityHeatmap({ clubs }) {
                   className="h-4 rounded"
                   title={`${v} posts`}
                   style={{
-                    background: `rgba(110,86,207,${Math.min(0.1 + v / 60, 1)})`,
+                    background: `rgba(255,122,0,${Math.min(0.1 + v / 60, 1)})`,
                   }}
                 />
               ))}

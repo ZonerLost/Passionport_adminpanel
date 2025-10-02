@@ -39,7 +39,7 @@ export default function RulesEditor({ data, onSave }) {
           <button
             className="h-8 px-3 text-gray-400 rounded-lg border text-xs"
             onClick={addKeyword}
-            style={{ borderColor: "rgba(110,86,207,0.25)" }}
+            style={{ borderColor: "rgba(255,122,0,0.25)" }}
           >
             Add
           </button>
@@ -66,7 +66,7 @@ export default function RulesEditor({ data, onSave }) {
                 }))
               }
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
           <label className="text-xs text-slate-400">
@@ -84,7 +84,7 @@ export default function RulesEditor({ data, onSave }) {
                 }))
               }
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
         </div>
@@ -93,7 +93,7 @@ export default function RulesEditor({ data, onSave }) {
       <button
         onClick={save}
         className="h-9 px-3 text-gray-400 rounded-lg border text-sm"
-        style={{ borderColor: "rgba(110,86,207,0.25)" }}
+        style={{ borderColor: "rgba(255,122,0,0.25)" }}
       >
         Save Rules
       </button>

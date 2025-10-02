@@ -62,7 +62,7 @@ export default function DiscountsTable({ rows, brands, onSave, onRemove }) {
               <th className="px-3 py-2 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {rows.map((d) => (
               <tr key={d.id}>
                 <td className="px-3 py-2 text-slate-200">{d.code}</td>

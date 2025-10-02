@@ -28,7 +28,7 @@ export default function PlatformSettings({ data, onSave }) {
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
               defaultValue={s.branding.appName}
               onChange={(e) => set("branding.appName", e.target.value)}
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
 
@@ -38,7 +38,7 @@ export default function PlatformSettings({ data, onSave }) {
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
               defaultValue={s.branding.primary}
               onChange={(e) => set("branding.primary", e.target.value)}
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
         </div>
@@ -53,7 +53,7 @@ export default function PlatformSettings({ data, onSave }) {
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
               defaultValue={s.legal.tosVersion}
               onChange={(e) => set("legal.tosVersion", e.target.value)}
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
 
@@ -63,7 +63,7 @@ export default function PlatformSettings({ data, onSave }) {
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
               defaultValue={s.legal.privacyVersion}
               onChange={(e) => set("legal.privacyVersion", e.target.value)}
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
         </div>
@@ -83,7 +83,7 @@ export default function PlatformSettings({ data, onSave }) {
                   e.target.value.split(",").map((x) => x.trim())
                 )
               }
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
 
@@ -96,7 +96,7 @@ export default function PlatformSettings({ data, onSave }) {
               onChange={(e) =>
                 set("moderation.autoBanThreshold", Number(e.target.value))
               }
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
         </div>
@@ -132,7 +132,7 @@ export default function PlatformSettings({ data, onSave }) {
             onChange={(e) =>
               set("backup.retentionDays", Number(e.target.value))
             }
-            style={{ borderColor: "rgba(110,86,207,0.25)" }}
+            style={{ borderColor: "rgba(255,122,0,0.25)" }}
           />
         </label>
       </SectionCard>
@@ -141,7 +141,7 @@ export default function PlatformSettings({ data, onSave }) {
       <button
         onClick={save}
         className="h-9 px-3 rounded-lg text-gray-400 border text-sm"
-        style={{ borderColor: "rgba(110,86,207,0.25)" }}
+        style={{ borderColor: "rgba(255,122,0,0.25)" }}
       >
         Save Settings
       </button>

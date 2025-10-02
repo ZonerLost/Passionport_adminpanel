@@ -20,7 +20,7 @@ export default function PrivacyLegal({
               className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
               defaultValue={data.dsrSlaHours}
               onChange={(e) => onSave({ dsrSlaHours: Number(e.target.value) })}
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
 
@@ -38,7 +38,7 @@ export default function PrivacyLegal({
                   },
                 })
               }
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
 
@@ -56,7 +56,7 @@ export default function PrivacyLegal({
                   },
                 })
               }
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             />
           </label>
         </div>
@@ -89,7 +89,7 @@ function Queue({ rows, onAdvance }) {
             <th className="px-3 py-2 text-right">Actions</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+        <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
           {rows.map((r) => (
             <tr key={r.id}>
               <td className="px-3 py-2 text-slate-200">{r.user}</td>
@@ -98,7 +98,7 @@ function Queue({ rows, onAdvance }) {
                 <button
                   className="h-8 px-3 rounded-lg text-gray-400 border text-xs"
                   onClick={() => onAdvance(r.id)}
-                  style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                  style={{ borderColor: "rgba(255,122,0,0.25)" }}
                 >
                   Advance
                 </button>

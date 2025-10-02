@@ -10,7 +10,7 @@ export default function ClubsRoster({ clubs }) {
             key={c.id}
             className="rounded-lg border p-3"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >

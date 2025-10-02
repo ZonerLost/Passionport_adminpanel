@@ -50,22 +50,16 @@ export default function Login() {
       <div className="w-full max-w-3xl bg-gradient-to-br from-[#0E0F15] to-[#111214] rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2">
         {/* Left / Branding */}
         <div
-          className="hidden md:flex flex-col items-start justify-center gap-6 p-10 bg-[linear-gradient(180deg,rgba(110,86,207,0.06),transparent)]"
+          className="hidden md:flex flex-col items-start justify-center gap-6 p-10 bg-[linear-gradient(180deg,rgba(255,122,0,0.06),transparent)]"
           aria-hidden="true"
         >
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#e0dfe4] to-[#dbdbdf] p-1">
+            <div className="w-55 h-45 rounded-lg overflow-hidden flex items-center justify-center bg-gradient-to-br from-text-[#ff7a00] to-text-[#ff7a00] p-1">
               <img
                 src="/assets/Logo.png"
                 alt="Passion Port Logo"
                 className="w-full h-full object-contain"
               />
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold text-white">
-                Passion Port
-              </h2>
-              <p className="text-sm text-[#A3A7B7]">Admin dashboard</p>
             </div>
           </div>
 
@@ -79,7 +73,7 @@ export default function Login() {
 
           <div className="mt-4 text-xs text-[#7E8294]">
             Need an account?{" "}
-            <span className="text-[#9B8FF2]">Contact your admin</span>
+            <span className="text-[#ff7a00]">Contact your admin</span>
           </div>
         </div>
 
@@ -108,7 +102,7 @@ export default function Login() {
                   autoComplete="username"
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}
-                  className="mt-2 block w-full rounded-lg bg-[#0F1014] border border-transparent focus:border-[#6E56CF] focus:ring-2 focus:ring-[#6E56CF]/40 text-white placeholder:text-[#6B6F80] px-4 py-3 outline-none transition"
+                  className="mt-2 block w-full rounded-lg bg-[#0F1014] border border-transparent focus:border-[#ff7a00] focus:ring-2 focus:ring-[#ff7a00]/40 text-white placeholder:text-[#6B6F80] px-4 py-3 outline-none transition"
                   placeholder="you@company.com or username"
                   aria-label="Username or email"
                 />
@@ -129,7 +123,7 @@ export default function Login() {
                     autoComplete="current-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full rounded-lg bg-[#0F1014] border border-transparent focus:border-[#6E56CF] focus:ring-2 focus:ring-[#6E56CF]/40 text-white placeholder:text-[#6B6F80] px-4 py-3 pr-12 outline-none transition"
+                    className="block w-full rounded-lg bg-[#0F1014] border border-transparent focus:border-[#ff7a00] focus:ring-2 focus:ring-[#ff7a00]/40 text-white placeholder:text-[#6B6F80] px-4 py-3 pr-12 outline-none transition"
                     placeholder="Enter your password"
                     aria-label="Password"
                   />
@@ -140,6 +134,7 @@ export default function Login() {
                     aria-pressed={showPwd}
                     aria-label={showPwd ? "Hide password" : "Show password"}
                   >
+                    {/* Eye icons unchanged */}
                     {showPwd ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +186,7 @@ export default function Login() {
                     type="checkbox"
                     checked={remember}
                     onChange={(e) => setRemember(e.target.checked)}
-                    className="h-4 w-4 rounded border-gray-600 bg-[#0F1014] focus:ring-2 focus:ring-[#6E56CF]/40"
+                    className="h-4 w-4 rounded border-gray-600 bg-[#0F1014] focus:ring-2 focus:ring-[#ff7a00]/40"
                   />
                   <span className="text-sm text-[#C6C8D6]">Remember me</span>
                 </label>
@@ -199,7 +194,7 @@ export default function Login() {
                 <div className="text-sm">
                   <a
                     href="/auth/forgot"
-                    className="text-[#9B8FF2] hover:text-[#BFAFFF]"
+                    className="text-[#ff7a00] hover:text-[#ff9944]"
                   >
                     Forgot password?
                   </a>
@@ -212,7 +207,7 @@ export default function Login() {
                   ref={liveErrorRef}
                   role="alert"
                   aria-live="assertive"
-                  className="rounded-md bg-[#2B1F3D] border border-[#6E56CF]/20 px-4 py-2 text-sm text-[#FDE8FF]"
+                  className="rounded-md bg-[#2B1F3D] border border-[#ff7a00]/30 px-4 py-2 text-sm text-[#ffb366]"
                 >
                   {error}
                 </div>
@@ -222,7 +217,7 @@ export default function Login() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 bg-gradient-to-r from-[#6E56CF] to-[#8B7BFF] text-white font-semibold shadow hover:scale-[1.01] transform transition disabled:opacity-60"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 bg-gradient-to-r from-[#ff7a00] to-[#ff944d] text-white font-semibold shadow hover:scale-[1.01] transform transition disabled:opacity-60"
                 >
                   {loading ? "Signing in..." : "Sign In"}
                 </button>
@@ -232,7 +227,7 @@ export default function Login() {
                 Don't have an account?{" "}
                 <a
                   href="/auth/signup"
-                  className="text-[#9B8FF2] hover:text-[#BFAFFF] font-medium"
+                  className="text-[#ff7a00] hover:text-[#ff9944] font-medium"
                 >
                   Sign up
                 </a>
@@ -241,11 +236,11 @@ export default function Login() {
 
             <div className="mt-6 border-t border-[#22232A] pt-4 text-xs text-[#6F7385]">
               By signing in you agree to our{" "}
-              <a className="text-[#9B8FF2]" href="/terms">
+              <a className="text-[#ff7a00]" href="/terms">
                 Terms
               </a>{" "}
               and{" "}
-              <a className="text-[#9B8FF2]" href="/privacy">
+              <a className="text-[#ff7a00]" href="/privacy">
                 Privacy Policy
               </a>
               .

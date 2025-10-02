@@ -4,7 +4,7 @@ export default function MetricCard({ label, value, sub }) {
     <div
       className="rounded-xl border p-4"
       style={{
-        borderColor: "rgba(110,86,207,0.25)",
+        borderColor: "rgba(255,122,0,0.25)",
         background: "#0F1118",
       }}
     >

@@ -5,6 +5,6 @@ export const COLORS = {
   text: "#E6E8F0",
   text2: "#A3A7B7",
   gold: "#D4AF37",
-  purple: "#6E56CF",
-  ring: "rgba(110,86,207,0.25)",
+
+  ring: "rgba(255,122,0,0.25)",
 };

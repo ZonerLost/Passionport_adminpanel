@@ -11,7 +11,7 @@ const AuthLayout = () => {
       className="min-h-screen"
       style={{
         background:
-          "radial-gradient(1200px 600px at 10% 10%, rgba(110,86,207,0.10), transparent 60%), radial-gradient(900px 500px at 90% 90%, rgba(212,175,55,0.10), transparent 60%), #12131A",
+          "radial-gradient(1200px 600px at 10% 10%, rgba(255,122,0,0.10), transparent 60%), radial-gradient(900px 500px at 90% 90%, rgba(212,175,55,0.10), transparent 60%), #12131A",
       }}
     >
       <Outlet />

@@ -67,7 +67,7 @@ export default function ContentCommunityModeration() {
               tab === key ? "text-white" : "text-slate-300"
             }`}
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: tab === key ? "#0F1118" : "transparent",
             }}
           >
@@ -263,7 +263,7 @@ export default function ContentCommunityModeration() {
               style={{
                 background: "#0F1118",
                 color: "#E6E8F0",
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
               }}
             />
           }

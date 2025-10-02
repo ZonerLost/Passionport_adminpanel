@@ -18,7 +18,7 @@ export default function Dialog({
       style={{ background: "rgba(0,0,0,0.55)" }}
     >
       <div
-        className="w-full max-w-md rounded-2xl border p-5"
+        className="w-full max-w-md rounded-2xl border p-5 shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
       >
         <h4 className="text-white text-lg font-semibold">{title}</h4>

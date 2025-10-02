@@ -67,7 +67,7 @@ export default function TemplateEditorDrawer({
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-3xl overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-3xl overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -83,7 +83,7 @@ export default function TemplateEditorDrawer({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <Field label="Name">
               <input
-                className="mt-1 h-8 w-full text-gray-400 rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full text-white rounded border bg-transparent px-2 text-sm"
                 value={state.name}
                 onChange={(e) =>
                   setState((s) => ({ ...s, name: e.target.value }))
@@ -93,7 +93,7 @@ export default function TemplateEditorDrawer({
             </Field>
             <Field label="Event">
               <select
-                className="mt-1 h-8 w-full text-gray-400 rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full text-white rounded border bg-transparent px-2 text-sm"
                 value={state.event}
                 onChange={(e) =>
                   setState((s) => ({ ...s, event: e.target.value }))
@@ -109,7 +109,7 @@ export default function TemplateEditorDrawer({
             </Field>
             <Field label="Category">
               <select
-                className="mt-1 h-8 w-full text-gray-400 rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full text-white rounded border bg-transparent px-2 text-sm"
                 value={state.category}
                 onChange={(e) =>
                   setState((s) => ({ ...s, category: e.target.value }))
@@ -143,7 +143,7 @@ export default function TemplateEditorDrawer({
             <Field label="Throttle/user/hr">
               <input
                 type="number"
-                className="mt-1 h-8 w-full text-gray-400 rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full text-white rounded border bg-transparent px-2 text-sm"
                 value={state.throttlePerUserPerHr}
                 onChange={(e) =>
                   setState((s) => ({
@@ -181,7 +181,7 @@ export default function TemplateEditorDrawer({
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-slate-200 font-medium">A/B Variants</h3>
               <button
-                className="h-8 px-3 rounded-lg border text-gray-400 text-sm"
+                className="h-8 px-3 rounded-lg border text-white text-sm"
                 onClick={addVariant}
                 style={{ borderColor: COLORS.ring }}
               >
@@ -192,9 +192,9 @@ export default function TemplateEditorDrawer({
               {state.versions.at(-1).variants.map((v) => (
                 <div
                   key={v.id}
-                  className="rounded-lg text-gray-400 border p-3"
+                  className="rounded-lg text-white border p-3"
                   style={{
-                    borderColor: "rgba(110,86,207,0.25)",
+                    borderColor: "rgba(255,122,0,0.25)",
                     background: "#0F1118",
                   }}
                 >
@@ -202,7 +202,7 @@ export default function TemplateEditorDrawer({
                     <div className="md:col-span-1">
                       <label className="text-xs text-slate-400">Name</label>
                       <input
-                        className="mt-1 h-8 w-full rounded text-gray-400 border bg-transparent px-2 text-sm"
+                        className="mt-1 h-8 w-full rounded text-white border bg-transparent px-2 text-sm"
                         value={v.name}
                         onChange={(e) =>
                           setVariant(v.id, { name: e.target.value })
@@ -215,7 +215,7 @@ export default function TemplateEditorDrawer({
                         Subject (email)
                       </label>
                       <input
-                        className="mt-1 h-8 w-full rounded border text-gray-400 bg-transparent px-2 text-sm"
+                        className="mt-1 h-8 w-full rounded border text-white bg-transparent px-2 text-sm"
                         value={v.subject}
                         onChange={(e) =>
                           setVariant(v.id, { subject: e.target.value })
@@ -227,7 +227,7 @@ export default function TemplateEditorDrawer({
                       <label className="text-xs text-slate-400">Body</label>
                       <textarea
                         rows={3}
-                        className="mt-1 w-full rounded border text-gray-400 bg-transparent p-2 text-sm"
+                        className="mt-1 w-full rounded border text-white bg-transparent p-2 text-sm"
                         value={v.body}
                         onChange={(e) =>
                           setVariant(v.id, { body: e.target.value })
@@ -254,14 +254,14 @@ export default function TemplateEditorDrawer({
           {/* Actions */}
           <div className="flex flex-wrap text-gray-400 items-center gap-2">
             <button
-              className="h-9 px-3 rounded-lg text-gray-400 border text-sm"
+              className="h-9 px-3 rounded-lg text-white border text-sm"
               onClick={() => onSave({ ...state })}
               style={{ borderColor: COLORS.ring }}
             >
               Save (new version)
             </button>
             <button
-              className="h-9 px-3 rounded-lg text-gray-400 border text-sm"
+              className="h-9 px-3 rounded-lg text-white border text-sm"
               onClick={() => {
                 const version = Number(prompt("Rollback to version:", "1"));
                 if (version) onRollback(state.id, version);
@@ -271,7 +271,7 @@ export default function TemplateEditorDrawer({
               Rollback…
             </button>
             <button
-              className="h-9 px-3 rounded-lg text-gray-400 border text-sm"
+              className="h-9 px-3 rounded-lg text-white border text-sm"
               onClick={() => {
                 const channel = prompt("Channel (push/email/inapp):", "email");
                 const target = prompt(

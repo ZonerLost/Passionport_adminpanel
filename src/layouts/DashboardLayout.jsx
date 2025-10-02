@@ -4,10 +4,10 @@ import Header from "../Components/ui/section/Header";
 import LeftSidebar from "../Components/ui/section/LeftSidebar";
 
 const COLORS = {
-  bg: "#0B0B0F",   // Onyx (app background)
-  bg2: "#12131A",  // Charcoal (content surface)
+  bg: "#0B0B0F", // Onyx (app background)
+  bg2: "#12131A", // Charcoal (content surface)
   card: "#161821", // Card surface
-  ring: "rgba(110,86,207,0.20)", // subtle purple ring
+  ring: "rgba(255,122,0,0.20)", // subtle orange ring
 };
 
 export default function DashboardLayout() {
@@ -38,7 +38,8 @@ export default function DashboardLayout() {
              - 2xl: grows further
              - ≥3xl (~1920px+): no max (use full width)
           */}
-          <div className="
+          <div
+            className="
               mx-auto w-full
               max-w-screen-lg
               xl:max-w-screen-xl

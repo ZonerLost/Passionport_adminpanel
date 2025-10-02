@@ -11,14 +11,14 @@ export default function Sparkline({ data = [], dataKey = "y" }) {
         >
           <defs>
             <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#6E56CF" stopOpacity={0.7} />
-              <stop offset="100%" stopColor="#6E56CF" stopOpacity={0.05} />
+              <stop offset="0%" stopColor="#ff7a00" stopOpacity={0.7} />
+              <stop offset="100%" stopColor="#ff7a00" stopOpacity={0.05} />
             </linearGradient>
           </defs>
           <Area
             type="monotone"
             dataKey={dataKey}
-            stroke="#6E56CF"
+            stroke="#ff7a00"
             fill="url(#grad)"
             strokeWidth={2}
           />
@@ -26,7 +26,7 @@ export default function Sparkline({ data = [], dataKey = "y" }) {
             cursor={false}
             contentStyle={{
               background: "#0F1118",
-              border: "1px solid rgba(110,86,207,0.25)",
+              border: "1px solid rgba(255,122,0,0.25)",
               borderRadius: 12,
             }}
           />

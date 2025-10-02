@@ -13,7 +13,7 @@ export default function CMSBlockEditorDrawer({ open, block, onClose, onSave }) {
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -25,7 +25,7 @@ export default function CMSBlockEditorDrawer({ open, block, onClose, onSave }) {
           <label className="text-xs text-slate-400">
             Key
             <input
-              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
               value={state.key}
               onChange={(e) => setState((s) => ({ ...s, key: e.target.value }))}
               style={{ borderColor: COLORS.ring }}
@@ -34,7 +34,7 @@ export default function CMSBlockEditorDrawer({ open, block, onClose, onSave }) {
           <label className="text-xs text-slate-400">
             Title
             <input
-              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
               value={state.title}
               onChange={(e) =>
                 setState((s) => ({ ...s, title: e.target.value }))
@@ -45,7 +45,7 @@ export default function CMSBlockEditorDrawer({ open, block, onClose, onSave }) {
           <label className="text-xs text-slate-400">
             Location
             <select
-              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
               value={state.location}
               onChange={(e) =>
                 setState((s) => ({ ...s, location: e.target.value }))
@@ -62,7 +62,7 @@ export default function CMSBlockEditorDrawer({ open, block, onClose, onSave }) {
             Content (HTML)
             <textarea
               rows={10}
-              className="mt-1 w-full rounded border bg-transparent p-2 text-sm"
+              className="mt-1 w-full rounded border bg-transparent p-2 text-sm text-white"
               value={state.content}
               onChange={(e) =>
                 setState((s) => ({ ...s, content: e.target.value }))
@@ -71,7 +71,7 @@ export default function CMSBlockEditorDrawer({ open, block, onClose, onSave }) {
             />
           </label>
           <button
-            className="h-9 px-3 rounded-lg border text-sm"
+            className="h-9 px-3 rounded-lg border text-sm text-white"
             onClick={() => onSave({ ...state })}
             style={{ borderColor: COLORS.ring }}
           >

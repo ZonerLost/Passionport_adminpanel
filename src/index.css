@@ -76,4 +76,27 @@ body {
   }
 }
 
+/* Accent shadow utilities to ensure consistent orange shadow across the app.
+   Provides a Tailwind-style arbitrary class selector and overrides common
+   .shadow* helpers so existing components get the accent automatically. */
+.shadow-\[\#ff7a00\] {
+  box-shadow: 0 6px 18px rgba(255, 122, 0, 0.10), 0 2px 6px rgba(255, 122, 0, 0.06);
+}
+
+/* Ensure Tailwind-like shadow helpers use the accent by default */
+.shadow,
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: 0 6px 18px rgba(255, 122, 0, 0.10), 0 2px 6px rgba(255, 122, 0, 0.06);
+}
+
+/* Catch any classes that include 'shadow-' (defensive): */
+[class*=" shadow-"],
+[class*="shadow-"] {
+  box-shadow: 0 6px 18px rgba(255, 122, 0, 0.10), 0 2px 6px rgba(255, 122, 0, 0.06);
+}
+
 

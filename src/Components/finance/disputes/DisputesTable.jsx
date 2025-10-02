@@ -22,7 +22,7 @@ export default function DisputesTable({ data, onPage, onOpen }) {
               <th className="px-3 py-2">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {data.rows.map((d) => (
               <tr
                 key={d.id}

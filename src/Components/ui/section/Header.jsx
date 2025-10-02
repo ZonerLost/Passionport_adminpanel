@@ -9,9 +9,8 @@ const COLORS = {
   card: "#161821",
   text: "#E6E8F0",
   text2: "#A3A7B7",
-  gold: "#D4AF37",
-  purple: "#6E56CF",
-  ring: "rgba(110,86,207,0.35)",
+  gold: "#ff7a00",
+  purple: "#ff7a00",
 };
 
 export default function Header({ onMenuClick = () => {} }) {
@@ -24,10 +23,10 @@ export default function Header({ onMenuClick = () => {} }) {
   return (
     <div className="px-3 md:px-4 pt-3">
       <header
-        className="h-14 w-full rounded-2xl shadow-sm flex items-center gap-3 px-3 md:px-4 border"
+        className="h-14 w-full rounded-2xl shadow-[#ff7a00] flex items-center gap-3 px-3 md:px-4 border"
         style={{
           backgroundColor: COLORS.card,
-          borderColor: "rgba(110,86,207,0.25)",
+          borderColor: "rgba(255,122,0,0.25)",
         }}
       >
         {/* Mobile menu */}

@@ -42,7 +42,7 @@ export default function RolePermissionManager({ roles, onUpdate }) {
           style={{
             background: "#0F1118",
             color: "#E6E8F0",
-            borderColor: "rgba(110,86,207,0.25)",
+            borderColor: "rgba(255,122,0,0.25)",
           }}
         >
           {roles.map((r) => (
@@ -58,7 +58,7 @@ export default function RolePermissionManager({ roles, onUpdate }) {
             key={p}
             className="flex items-center gap-2 rounded-lg border p-2 text-sm"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >

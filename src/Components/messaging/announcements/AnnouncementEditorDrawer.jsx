@@ -36,7 +36,7 @@ export default function AnnouncementEditorDrawer({
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -51,7 +51,7 @@ export default function AnnouncementEditorDrawer({
           <label className="text-xs text-slate-400">
             Title
             <input
-              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
               value={state.title}
               onChange={(e) =>
                 setState((s) => ({ ...s, title: e.target.value }))
@@ -62,7 +62,7 @@ export default function AnnouncementEditorDrawer({
           <label className="text-xs text-slate-400">
             Type
             <select
-              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
               value={state.type}
               onChange={(e) =>
                 setState((s) => ({ ...s, type: e.target.value }))
@@ -77,7 +77,7 @@ export default function AnnouncementEditorDrawer({
             Content (HTML/text)
             <textarea
               rows={6}
-              className="mt-1 w-full rounded border bg-transparent p-2 text-sm"
+              className="mt-1 w-full rounded border bg-transparent p-2 text-sm text-white"
               value={state.content}
               onChange={(e) =>
                 setState((s) => ({ ...s, content: e.target.value }))
@@ -94,7 +94,7 @@ export default function AnnouncementEditorDrawer({
                   key={s.id}
                   className="text-xs text-slate-300 rounded border p-2"
                   style={{
-                    borderColor: "rgba(110,86,207,0.25)",
+                    borderColor: "rgba(255,122,0,0.25)",
                     background: "#0F1118",
                   }}
                 >
@@ -120,7 +120,7 @@ export default function AnnouncementEditorDrawer({
                 Start
                 <input
                   type="datetime-local"
-                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   value={sched.start}
                   onChange={(e) =>
                     setSched((s) => ({ ...s, start: e.target.value }))
@@ -132,7 +132,7 @@ export default function AnnouncementEditorDrawer({
                 End
                 <input
                   type="datetime-local"
-                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   value={sched.end}
                   onChange={(e) =>
                     setSched((s) => ({ ...s, end: e.target.value }))
@@ -143,14 +143,14 @@ export default function AnnouncementEditorDrawer({
             </div>
             <div className="flex items-center gap-2 mt-2">
               <button
-                className="h-8 px-3 rounded-lg border text-sm"
+                className="h-8 px-3 rounded-lg border text-sm text-white"
                 onClick={() => onSave({ ...state })}
                 style={{ borderColor: COLORS.ring }}
               >
                 Save
               </button>
               <button
-                className="h-8 px-3 rounded-lg border text-sm"
+                className="h-8 px-3 rounded-lg border text-sm text-white"
                 onClick={() =>
                   onSchedule(
                     state.id,

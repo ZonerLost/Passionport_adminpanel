@@ -10,7 +10,7 @@ export default function InvoiceSettings({ settings, onSave }) {
   return (
     <div
       className="rounded-xl border p-4 space-y-3"
-      style={{ borderColor: "rgba(110,86,207,0.25)", background: "#0F1118" }}
+      style={{ borderColor: "rgba(255,122,0,0.25)", background: "#0F1118" }}
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <label className="text-xs text-slate-400">

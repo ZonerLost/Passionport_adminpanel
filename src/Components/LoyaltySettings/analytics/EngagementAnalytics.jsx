@@ -32,11 +32,11 @@ export default function EngagementAnalytics({ data }) {
           <Tooltip
             contentStyle={{
               background: "#0F1118",
-              border: "1px solid rgba(110,86,207,0.25)",
+              border: "1px solid rgba(255,122,0,0.25)",
               borderRadius: 12,
             }}
           />
-          <Bar dataKey="value" fill="#6E56CF" radius={[6, 6, 0, 0]} />
+          <Bar dataKey="value" fill="#ff7a00" radius={[6, 6, 0, 0]} />
         </BarChart>
       </ChartCard>
 
@@ -75,7 +75,7 @@ export default function EngagementAnalytics({ data }) {
                 <th className="px-3 py-2">M+4</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+            <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
               {data.cohorts.map((c) => (
                 <tr key={c.cohort}>
                   <td className="px-3 py-2 text-slate-200">{c.cohort}</td>
@@ -102,7 +102,7 @@ export default function EngagementAnalytics({ data }) {
           <Tooltip
             contentStyle={{
               background: "#0F1118",
-              border: "1px solid rgba(110,86,207,0.25)",
+              border: "1px solid rgba(255,122,0,0.25)",
               borderRadius: 12,
             }}
           />
@@ -131,7 +131,7 @@ export default function EngagementAnalytics({ data }) {
                 <th className="px-3 py-2">Active</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+            <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
               {data.clubs.map((c) => (
                 <tr key={c.club}>
                   <td className="px-3 py-2 text-slate-200">{c.club}</td>

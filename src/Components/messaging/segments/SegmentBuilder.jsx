@@ -50,7 +50,7 @@ export default function SegmentBuilder({
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -64,7 +64,7 @@ export default function SegmentBuilder({
           <label className="text-xs text-slate-400">
             Name
             <input
-              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+              className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
               value={state.name}
               onChange={(e) =>
                 setState((s) => ({ ...s, name: e.target.value }))
@@ -76,7 +76,7 @@ export default function SegmentBuilder({
             <label className="text-xs text-slate-400">
               Roles (CSV)
               <input
-                className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                 placeholder="Fan,Brand"
                 defaultValue={state.rules.role.join(",")}
                 onBlur={(e) =>
@@ -91,7 +91,7 @@ export default function SegmentBuilder({
             <label className="text-xs text-slate-400">
               Countries (CSV)
               <input
-                className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                 placeholder="US,PK"
                 defaultValue={state.rules.country.join(",")}
                 onBlur={(e) =>
@@ -106,7 +106,7 @@ export default function SegmentBuilder({
             <label className="text-xs text-slate-400">
               Badges (CSV)
               <input
-                className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                 placeholder="Gold,Platinum"
                 defaultValue={state.rules.badges.join(",")}
                 onBlur={(e) =>
@@ -123,7 +123,7 @@ export default function SegmentBuilder({
                 Last N days
                 <input
                   type="number"
-                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   defaultValue={state.rules.activity.lastNDays}
                   onBlur={(e) =>
                     setState((s) => ({
@@ -144,7 +144,7 @@ export default function SegmentBuilder({
                 Min actions
                 <input
                   type="number"
-                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   defaultValue={state.rules.activity.minActions}
                   onBlur={(e) =>
                     setState((s) => ({
@@ -166,7 +166,7 @@ export default function SegmentBuilder({
 
           <div className="flex items-center gap-2">
             <button
-              className="h-9 px-3 rounded-lg border text-sm"
+              className="h-9 px-3 rounded-lg border text-sm text-white"
               onClick={async () => setEstimate(await onEstimate(state.rules))}
               style={{ borderColor: COLORS.ring }}
             >
@@ -181,7 +181,7 @@ export default function SegmentBuilder({
 
           <div className="flex items-center gap-2">
             <button
-              className="h-9 px-3 rounded-lg border text-sm"
+              className="h-9 px-3 rounded-lg border text-sm text-white"
               onClick={() => onSave({ ...(segment || {}), ...state })}
               style={{ borderColor: COLORS.ring }}
             >

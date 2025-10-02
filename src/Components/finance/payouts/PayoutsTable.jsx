@@ -23,7 +23,7 @@ export default function PayoutsTable({ data, onPage, onOpen }) {
               <th className="px-3 py-2 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {data.rows.map((p) => (
               <tr key={p.id} className="hover:bg-white/5">
                 <td className="px-3 text-gray-400  py-2">

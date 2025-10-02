@@ -22,7 +22,7 @@ export default function KycQueue({
           style={{
             background: "#0F1118",
             color: "#E6E8F0",
-            borderColor: "rgba(110,86,207,0.25)",
+            borderColor: "rgba(255,122,0,0.25)",
           }}
         >
           <option value="all">All</option>
@@ -47,7 +47,7 @@ export default function KycQueue({
               <th className="px-3 py-2 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y text-gray-400 divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y text-gray-400 divide-[rgba(255,122,0,0.15)]">
             {data.rows.map((row) => (
               <tr key={row.id}>
                 <td className="px-3 py-2 text-slate-200">{row.brandName}</td>

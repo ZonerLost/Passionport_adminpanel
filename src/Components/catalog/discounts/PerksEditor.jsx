@@ -28,7 +28,7 @@ export default function PerksEditor() {
         <button
           onClick={add}
           className="h-9 px-3 text-gray-400 rounded-lg border text-sm"
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         >
           Add Perk
         </button>
@@ -39,7 +39,7 @@ export default function PerksEditor() {
             key={p.id}
             className="rounded-lg border p-3 flex items-center justify-between"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >

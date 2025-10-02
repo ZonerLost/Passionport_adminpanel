@@ -10,7 +10,7 @@ export default function CMSBlocksTable({
   return (
     <div className="space-y-3">
       <div className="overflow-x-auto">
-        <table className="min-w-[900px] w-full text-sm">
+        <table className="min-w-[900px] w-full text-white text-sm">
           <thead>
             <tr
               className="text-left text-xs uppercase"
@@ -24,7 +24,7 @@ export default function CMSBlocksTable({
               <th className="px-3 py-2 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,255,255,0.81)]">
             {data.rows.map((b) => (
               <tr key={b.id} className="hover:bg-white/5">
                 <td className="px-3 py-2">
@@ -43,6 +43,7 @@ export default function CMSBlocksTable({
                 <td className="px-3 py-2 text-right">
                   <button
                     className="text-xs underline"
+                    style={{ color: "#e2e8f0" }}
                     onClick={() =>
                       onTogglePublish(b.id, b.status !== "published")
                     }

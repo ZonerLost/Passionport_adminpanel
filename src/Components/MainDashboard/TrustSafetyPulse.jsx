@@ -13,7 +13,7 @@ export default function TrustSafetyPulse({ data }) {
               key={q.label}
               href={q.href}
               className="px-2.5 h-8 inline-flex items-center rounded-lg border hover:bg-white/5"
-              style={{ borderColor: "rgba(110,86,207,0.25)" }}
+              style={{ borderColor: "rgba(255,122,0,0.25)" }}
             >
               {q.label} ({q.count})
             </a>
@@ -38,7 +38,7 @@ function PulseCard({ label, value }) {
   return (
     <div
       className="rounded-xl border p-4"
-      style={{ borderColor: "rgba(110,86,207,0.25)", background: "#0F1118" }}
+      style={{ borderColor: "rgba(255,122,0,0.25)", background: "#0F1118" }}
     >
       <div className="text-slate-300 text-xs uppercase">{label}</div>
       <div className="text-white text-lg font-semibold">{value}</div>

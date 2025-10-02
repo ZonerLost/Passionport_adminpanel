@@ -8,7 +8,7 @@ export default function SearchDiscovery({ data }) {
     <div className="space-y-4">
       <SectionCard title="Top Queries">
         <table className="w-full text-sm">
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {data.topQueries.map((r) => (
               <tr key={r.q}>
                 <td className="px-3 py-2 text-slate-200">{r.q}</td>
@@ -23,7 +23,7 @@ export default function SearchDiscovery({ data }) {
 
       <SectionCard title="Zero-result Terms">
         <table className="w-full text-sm">
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {data.zeroResults.map((r) => (
               <tr key={r.q}>
                 <td className="px-3 py-2 text-slate-200">{r.q}</td>
@@ -43,7 +43,7 @@ export default function SearchDiscovery({ data }) {
               key={t.tag}
               className="rounded-lg border p-3 flex items-center justify-between"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >

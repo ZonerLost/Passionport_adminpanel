@@ -62,7 +62,7 @@ export default function TemplateFiltersBar({
       <div className="flex-1" />
       <button
         onClick={onExport}
-        className="h-9 px-3 text-gray-400 rounded-lg border text-sm"
+        className="h-9 px-3 text-white rounded-lg border text-sm"
         style={{ borderColor: COLORS.ring }}
       >
         Export CSV

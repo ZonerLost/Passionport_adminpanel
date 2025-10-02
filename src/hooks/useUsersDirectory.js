@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 import {
   fetchUsers,
   promoteUserRole,
@@ -9,6 +9,8 @@ import {
   signOutAllDevices,
   exportUserData,
   deleteUser,
+  createUser,
+  updateUser,
 } from "../Data/users.service";
 
 export default function useUsersDirectory() {
@@ -22,17 +24,27 @@ export default function useUsersDirectory() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  async function load() {
-    try {
-      setLoading(true);
-      const r = await fetchUsers({ query, type, role, status, page, pageSize });
-      setRes(r);
-    } catch (e) {
-      setError(e);
-    } finally {
-      setLoading(false);
-    }
-  }
+  const load = useCallback(
+    async function () {
+      try {
+        setLoading(true);
+        const r = await fetchUsers({
+          query,
+          type,
+          role,
+          status,
+          page,
+          pageSize,
+        });
+        setRes(r);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [query, type, role, status, page, pageSize]
+  );
 
   useEffect(() => {
     load(); // eslint-disable-next-line
@@ -40,6 +52,8 @@ export default function useUsersDirectory() {
 
   const actions = useMemo(
     () => ({
+      createUser,
+      updateUser,
       promote: promoteUserRole,
       suspend: suspendUser,
       ban: banUser,

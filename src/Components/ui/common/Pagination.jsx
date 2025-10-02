@@ -9,7 +9,7 @@ export default function Pagination({ page, total, pageSize, onPage }) {
       <button
         onClick={prev}
         className="h-8 px-2 rounded border"
-        style={{ borderColor: "rgba(110,86,207,0.25)" }}
+        style={{ borderColor: "rgba(255,122,0,0.25)" }}
       >
         Prev
       </button>
@@ -19,7 +19,7 @@ export default function Pagination({ page, total, pageSize, onPage }) {
       <button
         onClick={next}
         className="h-8 px-2 rounded border"
-        style={{ borderColor: "rgba(110,86,207,0.25)" }}
+        style={{ borderColor: "rgba(255,122,0,0.25)" }}
       >
         Next
       </button>

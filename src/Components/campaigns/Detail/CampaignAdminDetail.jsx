@@ -16,7 +16,8 @@ export default function CampaignAdminDetail({ data, onPinTestimonial }) {
               Status: <b>{data.status}</b>
             </div>
             <div className="text-sm">
-              Goal: <b>${data.goal.toLocaleString()}</b> - Raised: <b>${data.raised.toLocaleString()}</b>
+              Goal: <b>${data.goal.toLocaleString()}</b> - Raised:{" "}
+              <b>${data.raised.toLocaleString()}</b>
             </div>
             <p className="text-slate-300 mt-2">{data.story}</p>
           </div>
@@ -36,12 +37,14 @@ export default function CampaignAdminDetail({ data, onPinTestimonial }) {
                   <th className="px-3 py-2">Perks</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+              <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
                 {data.tiers.map((t) => (
                   <tr key={t.id}>
                     <td className="px-3 py-2 text-slate-200">{t.name}</td>
                     <td className="px-3 py-2 text-slate-300">${t.min}</td>
-                    <td className="px-3 py-2 text-slate-300">{t.limit ?? "-"}</td>
+                    <td className="px-3 py-2 text-slate-300">
+                      {t.limit ?? "-"}
+                    </td>
                     <td className="px-3 py-2 text-slate-300">{t.perks}</td>
                   </tr>
                 ))}
@@ -60,7 +63,7 @@ export default function CampaignAdminDetail({ data, onPinTestimonial }) {
                     key={i}
                     className="rounded-lg border p-3"
                     style={{
-                      borderColor: "rgba(110,86,207,0.25)",
+                      borderColor: "rgba(255,122,0,0.25)",
                       background: "#0F1118",
                     }}
                   >
@@ -78,7 +81,7 @@ export default function CampaignAdminDetail({ data, onPinTestimonial }) {
                     key={m.id}
                     className="rounded-lg border p-3"
                     style={{
-                      borderColor: "rgba(110,86,207,0.25)",
+                      borderColor: "rgba(255,122,0,0.25)",
                       background: "#0F1118",
                     }}
                   >
@@ -106,7 +109,7 @@ export default function CampaignAdminDetail({ data, onPinTestimonial }) {
                 key={t.id}
                 className="rounded-lg border p-3"
                 style={{
-                  borderColor: "rgba(110,86,207,0.25)",
+                  borderColor: "rgba(255,122,0,0.25)",
                   background: "#0F1118",
                 }}
               >

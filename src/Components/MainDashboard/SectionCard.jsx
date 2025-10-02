@@ -2,7 +2,7 @@ import React from "react";
 
 const COLORS = {
   card: "#161821",
-  ring: "rgba(110,86,207,0.25)",
+  ring: "rgba(255,122,0,0.25)",
 };
 
 export default function SectionCard({ title, action, children }) {

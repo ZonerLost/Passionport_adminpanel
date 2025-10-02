@@ -54,7 +54,7 @@ export default function CampaignLifecycleModeration() {
                 tab === key ? "text-white" : "text-slate-300"
               } ${inactive ? "opacity-60" : ""}`}
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: tab === key ? "#0F1118" : "transparent",
               }}
             >
@@ -121,8 +121,8 @@ export default function CampaignLifecycleModeration() {
       )}
 
       {/* Detail */}
-      {tab === "detail" && (
-        detail.loading ? (
+      {tab === "detail" &&
+        (detail.loading ? (
           <SectionCard title="Campaign Detail">
             <div className="text-sm text-slate-300">
               Loading selected campaign...
@@ -139,12 +139,11 @@ export default function CampaignLifecycleModeration() {
               Select a campaign from the queue to view its detail.
             </div>
           </SectionCard>
-        )
-      )}
+        ))}
 
       {/* Updates Review */}
-      {tab === "updates" && (
-        detail.loading ? (
+      {tab === "updates" &&
+        (detail.loading ? (
           <SectionCard title="Updates Review">
             <div className="text-sm text-slate-300">
               Loading updates for the selected campaign...
@@ -172,12 +171,11 @@ export default function CampaignLifecycleModeration() {
               Select a campaign from the queue to review updates.
             </div>
           </SectionCard>
-        )
-      )}
+        ))}
 
       {/* Challenges */}
-      {tab === "challenges" && (
-        detail.loading ? (
+      {tab === "challenges" &&
+        (detail.loading ? (
           <SectionCard title="Challenges">
             <div className="text-sm text-slate-300">
               Loading challenges for the selected campaign...
@@ -195,8 +193,7 @@ export default function CampaignLifecycleModeration() {
               Select a campaign from the queue to manage challenges.
             </div>
           </SectionCard>
-        )
-      )}
+        ))}
     </div>
   );
 }

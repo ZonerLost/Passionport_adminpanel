@@ -23,7 +23,7 @@ export default function AccessAudit({
               key={k.id}
               className="rounded-lg border p-3 flex items-center justify-between"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -36,7 +36,7 @@ export default function AccessAudit({
               <button
                 className="h-8 px-3 rounded-lg text-gray-400 border text-xs"
                 onClick={() => onRotate(k.id)}
-                style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                style={{ borderColor: "rgba(255,122,0,0.25)" }}
               >
                 Rotate
               </button>
@@ -53,7 +53,7 @@ export default function AccessAudit({
               key={w.id}
               className="rounded-lg border p-3 text-gray-400 flex items-center justify-between"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -66,7 +66,7 @@ export default function AccessAudit({
               <button
                 className="h-8 px-3 rounded-lg text-gray-400 border text-xs"
                 onClick={() => onTestWebhook(w.id)}
-                style={{ borderColor: "rgba(110,86,207,0.25)" }}
+                style={{ borderColor: "rgba(255,122,0,0.25)" }}
               >
                 Test Ping
               </button>
@@ -78,7 +78,7 @@ export default function AccessAudit({
             className="h-10 px-4 rounded-lg border text-xs text-gray-400"
             onClick={onAddWebhook}
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >
@@ -108,7 +108,7 @@ export default function AccessAudit({
                 <th className="px-3 py-2">Meta</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+            <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
               {logs.rows.map((r) => (
                 <tr key={r.id}>
                   <td className="px-3 py-2 text-slate-300">
@@ -157,7 +157,7 @@ function WebhookAdd({ onAdd }) {
     <button
       className="h-8 px-3 rounded-lg border text-xs"
       onClick={add}
-      style={{ borderColor: "rgba(110,86,207,0.25)" }}
+      style={{ borderColor: "rgba(255,122,0,0.25)" }}
     >
       Add Webhook
     </button>
@@ -186,7 +186,7 @@ function SsoForm({ initial, onSave }) {
           className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
           defaultValue={v.issuer}
           onChange={(e) => setV((s) => ({ ...s, issuer: e.target.value }))}
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         />
       </label>
 
@@ -196,7 +196,7 @@ function SsoForm({ initial, onSave }) {
           className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
           defaultValue={v.clientId}
           onChange={(e) => setV((s) => ({ ...s, clientId: e.target.value }))}
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         />
       </label>
 
@@ -206,7 +206,7 @@ function SsoForm({ initial, onSave }) {
           className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
           defaultValue={v.audience}
           onChange={(e) => setV((s) => ({ ...s, audience: e.target.value }))}
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         />
       </label>
 
@@ -214,7 +214,7 @@ function SsoForm({ initial, onSave }) {
         <button
           className="h-8 px-3 rounded-lg text-gray-400 border text-xs"
           onClick={() => onSave(v)}
-          style={{ borderColor: "rgba(110,86,207,0.25)" }}
+          style={{ borderColor: "rgba(255,122,0,0.25)" }}
         >
           Save SSO
         </button>

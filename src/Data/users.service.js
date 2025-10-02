@@ -30,6 +30,35 @@ export async function fetchUserById(id) {
   return mapUser(DB.find((u) => u.id === id));
 }
 
+export async function createUser(payload) {
+  const id = String(Date.now()) + Math.floor(Math.random() * 1000);
+  const now = new Date().toISOString();
+  const newUser = {
+    id,
+    name: payload.name || "New User",
+    handle: payload.handle || "new_user",
+    email: payload.email || "",
+    phone: payload.phone || "",
+    type: payload.type || "fan",
+    role: payload.role || "Fan",
+    status: payload.status || "active",
+    createdAt: now,
+    orders: 0,
+    backings: 0,
+    clubs: 0,
+    strikes: 0,
+    devices: [],
+    sessions: 0,
+  };
+  DB = [newUser, ...DB];
+  return mapUser(newUser);
+}
+
+export async function updateUser(id, payload) {
+  DB = DB.map((u) => (u.id === id ? { ...u, ...payload } : u));
+  return mapUser(DB.find((u) => u.id === id));
+}
+
 export async function promoteUserRole(id, role) {
   DB = DB.map((u) => (u.id === id ? { ...u, role } : u));
   return { ok: true };
@@ -42,10 +71,10 @@ export async function banUser(id, reason) {
   DB = DB.map((u) => (u.id === id ? { ...u, status: "banned" } : u));
   return { ok: true, reason };
 }
-export async function reset2FA(id) {
+export async function reset2FA() {
   return { ok: true };
 }
-export async function forcePasswordReset(id) {
+export async function forcePasswordReset() {
   return { ok: true };
 }
 export async function signOutAllDevices(id) {

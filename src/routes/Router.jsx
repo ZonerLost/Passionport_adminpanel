@@ -9,6 +9,9 @@ import ProductsOrdersCatalog from "../Pages/ProductsOrdersCatalog";
 import PaymentsPayoutsFinance from "../Pages/PaymentsPayoutsFinance";
 import MessagingNotificationsCMS from "../Pages/MessagingNotificationsCMS";
 import AnalyticsLoyaltySettings from "../Pages/AnalyticsLoyaltySettings";
+import Fans from "../Pages/Fans";
+// changed imports to point to page wrappers
+import Brands from "../Pages/Brands";
 // FIXED: correct import casing to match filesystem
 import Login from "../Pages/Auth/Login";
 import NotFound from "../Pages/NotFound";
@@ -26,6 +29,9 @@ const Router = createBrowserRouter([
       { path: "finance", element: <PaymentsPayoutsFinance /> },
       { path: "messaging", element: <MessagingNotificationsCMS /> },
       { path: "support-settings", element: <AnalyticsLoyaltySettings /> },
+      { path: "fans", element: <Fans /> },
+      // ensure these routes point at the new page wrappers
+      { path: "brands", element: <Brands /> },
     ],
     errorElement: <NotFound />,
   },

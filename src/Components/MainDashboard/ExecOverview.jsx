@@ -13,13 +13,13 @@ export default function ExecOverview({ exec }) {
         <div className="flex items-center gap-2">
           <button
             className="px-3 text-white h-8 rounded-lg text-xs border"
-            style={{ borderColor: "rgba(110,86,207,0.25)" }}
+            style={{ borderColor: "rgba(255,122,0,0.25)" }}
           >
             Export CSV
           </button>
           <button
             className="px-3 text-white h-8 rounded-lg text-xs border"
-            style={{ borderColor: "rgba(110,86,207,0.25)" }}
+            style={{ borderColor: "rgba(255,122,0,0.25)" }}
           >
             Export PDF
           </button>
@@ -59,7 +59,7 @@ export default function ExecOverview({ exec }) {
         <div
           className="rounded-xl border p-4"
           style={{
-            borderColor: "rgba(110,86,207,0.25)",
+            borderColor: "rgba(255,122,0,0.25)",
             background: "#0F1118",
           }}
         >

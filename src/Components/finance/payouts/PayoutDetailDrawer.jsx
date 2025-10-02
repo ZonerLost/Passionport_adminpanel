@@ -23,13 +23,13 @@ export default function PayoutDetailDrawer({
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-xl overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-xl overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-5 border-b" style={{ borderColor: COLORS.ring }}>
           <div className="text-white text-lg font-semibold">{payout.brand}</div>
-          <div className="text-sm text-slate-300">
+          <div className="text-sm text-white">
             KYC: {payout.kycStatus} • Bank ****{payout.bank.last4}
           </div>
         </div>
@@ -42,20 +42,21 @@ export default function PayoutDetailDrawer({
             v={new Date(payout.nextPayoutAt).toLocaleString()}
           />
 
+          {/* ---------------- Holds ---------------- */}
           <section>
-            <h3 className="text-slate-200 font-medium mb-2">Manage Holds</h3>
+            <h3 className="text-white font-medium mb-2">Manage Holds</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div
                 className="rounded-lg border p-3"
                 style={{
-                  borderColor: "rgba(110,86,207,0.25)",
+                  borderColor: "rgba(255,122,0,0.25)",
                   background: "#0F1118",
                 }}
               >
-                <label className="text-xs text-slate-400">Add Hold (USD)</label>
+                <label className="text-xs text-white">Add Hold (USD)</label>
                 <input
                   type="number"
-                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   value={hold.amount}
                   onChange={(e) =>
                     setHold((s) => ({ ...s, amount: e.target.value }))
@@ -64,7 +65,7 @@ export default function PayoutDetailDrawer({
                 />
                 <input
                   placeholder="Reason/Note"
-                  className="mt-2 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-2 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   value={hold.note}
                   onChange={(e) =>
                     setHold((s) => ({ ...s, note: e.target.value }))
@@ -72,32 +73,31 @@ export default function PayoutDetailDrawer({
                   style={{ borderColor: COLORS.ring }}
                 />
                 <button
-                  className="mt-2 h-8 px-3 rounded-lg border text-sm"
+                  className="mt-2 h-8 px-3 rounded-lg border text-sm text-white"
                   onClick={() => onHold(payout.brand, hold.amount, hold.note)}
                   style={{ borderColor: COLORS.ring }}
                 >
                   Add Hold
                 </button>
               </div>
+
               <div
                 className="rounded-lg border p-3"
                 style={{
-                  borderColor: "rgba(110,86,207,0.25)",
+                  borderColor: "rgba(255,122,0,0.25)",
                   background: "#0F1118",
                 }}
               >
-                <label className="text-xs text-slate-400">
-                  Release Hold (USD)
-                </label>
+                <label className="text-xs text-white">Release Hold (USD)</label>
                 <input
                   type="number"
-                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm"
+                  className="mt-1 h-8 w-full rounded border bg-transparent px-2 text-sm text-white"
                   value={releaseAmt}
                   onChange={(e) => setReleaseAmt(e.target.value)}
                   style={{ borderColor: COLORS.ring }}
                 />
                 <button
-                  className="mt-2 h-8 px-3 rounded-lg border text-sm"
+                  className="mt-2 h-8 px-3 rounded-lg border text-sm text-white"
                   onClick={() => onRelease(payout.brand, releaseAmt)}
                   style={{ borderColor: COLORS.ring }}
                 >
@@ -107,18 +107,19 @@ export default function PayoutDetailDrawer({
             </div>
           </section>
 
+          {/* ---------------- Schedule ---------------- */}
           <section>
-            <h3 className="text-slate-200 font-medium mb-2">Schedule Payout</h3>
+            <h3 className="text-white font-medium mb-2">Schedule Payout</h3>
             <div className="flex items-center gap-2">
               <input
                 type="datetime-local"
-                className="h-8 rounded border bg-transparent px-2 text-sm"
+                className="h-8 rounded border bg-transparent px-2 text-sm text-white calendar-white"
                 value={nextDate}
                 onChange={(e) => setNextDate(e.target.value)}
                 style={{ borderColor: COLORS.ring }}
               />
               <button
-                className="h-8 px-3 rounded-lg border text-sm"
+                className="h-8 px-3 rounded-lg border text-sm text-white"
                 onClick={() =>
                   onSchedule(
                     payout.id,
@@ -135,17 +136,28 @@ export default function PayoutDetailDrawer({
           </section>
         </div>
       </div>
+
+      {/* ✅ Custom CSS for white calendar icon */}
+      <style jsx>{`
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+        input[type="datetime-local"] {
+          color-scheme: dark;
+        }
+      `}</style>
     </div>
   );
 }
+
 function Row({ k, v }) {
   return (
     <div
       className="flex items-center justify-between rounded-lg border p-3"
-      style={{ borderColor: "rgba(110,86,207,0.25)", background: "#0F1118" }}
+      style={{ borderColor: "rgba(255,122,0,0.25)", background: "#0F1118" }}
     >
-      <div className="text-slate-400 text-sm">{k}</div>
-      <div className="text-slate-200">{v}</div>
+      <div className="text-white text-sm">{k}</div>
+      <div className="text-white">{v}</div>
     </div>
   );
 }

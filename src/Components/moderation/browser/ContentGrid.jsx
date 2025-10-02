@@ -16,7 +16,7 @@ export default function ContentGrid({
             key={ct.id}
             className="rounded-xl border p-3 space-y-2"
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: "#0F1118",
             }}
           >

@@ -22,7 +22,9 @@ export default function UsersRolesVerification() {
       const matchesQ =
         !needle ||
         [u.name, u.email, u.handle].some((v) =>
-          String(v || "").toLowerCase().includes(needle)
+          String(v || "")
+            .toLowerCase()
+            .includes(needle)
         );
 
       const matchesRole =
@@ -118,7 +120,7 @@ export default function UsersRolesVerification() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search name, handle, email…"
-              className="w-[220px] rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(110,86,207,0.35)]"
+              className="w-[220px] rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(255,122,0,0.35)]"
             />
             <select
               value={role}
@@ -146,7 +148,7 @@ export default function UsersRolesVerification() {
 
           <button
             onClick={handleAdd}
-            className="px-4 py-2 rounded-lg bg-[#6E56CF] text-white hover:bg-[#5b47b5]"
+            className="px-4 py-2 rounded-lg bg-[#ff7a00] text-white hover:bg-[#e26900]"
           >
             Add New
           </button>

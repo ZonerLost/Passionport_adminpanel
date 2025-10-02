@@ -11,7 +11,7 @@ export default function ProductDetailDrawer({ open, product, onClose }) {
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-2xl overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -39,7 +39,7 @@ export default function ProductDetailDrawer({ open, product, onClose }) {
                     <th className="px-3 py-2">Stock</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+                <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
                   {p.variants.map((v) => (
                     <tr key={v.id}>
                       <td className="px-3 py-2 text-slate-200">{v.name}</td>
@@ -59,7 +59,7 @@ export default function ProductDetailDrawer({ open, product, onClose }) {
             <div
               className="rounded-lg border p-3"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -78,7 +78,7 @@ export default function ProductDetailDrawer({ open, product, onClose }) {
             <div
               className="rounded-lg border p-3"
               style={{
-                borderColor: "rgba(110,86,207,0.25)",
+                borderColor: "rgba(255,122,0,0.25)",
                 background: "#0F1118",
               }}
             >
@@ -111,4 +111,14 @@ export default function ProductDetailDrawer({ open, product, onClose }) {
 
 function Check({ label, v }) {
   const color = v > 0.8 ? "#f87171" : v > 0.6 ? "#fb923c" : "#34d399";
+  return (
+    <div
+      className="rounded-lg border p-3"
+      style={{ borderColor: color, background: "#1a1c23" }}
+    >
+      <div className="text-sm text-slate-300">
+        {label}: <span style={{ color }}>{v.toFixed(2)}</span>
+      </div>
+    </div>
+  );
 }

@@ -57,7 +57,10 @@ export default function DirectoryTable({ rows, onSelect, onAction }) {
     <div className="overflow-x-auto">
       <table className="min-w-[900px] w-full text-sm">
         <thead>
-          <tr className="text-left text-xs uppercase" style={{ color: "#A3A7B7" }}>
+          <tr
+            className="text-left text-xs uppercase"
+            style={{ color: "#A3A7B7" }}
+          >
             <th className="px-3 py-2">User</th>
             <th className="px-3 py-2">Email</th>
             <th className="px-3 py-2">Type</th>
@@ -68,7 +71,7 @@ export default function DirectoryTable({ rows, onSelect, onAction }) {
           </tr>
         </thead>
 
-        <tbody className="divide-y text-gray-400 divide-[rgba(110,86,207,0.15)]">
+        <tbody className="divide-y text-gray-400 divide-[rgba(255,122,0,0.15)]">
           {rows.map((u) => (
             <tr key={u.id} className="hover:bg-white/5">
               <td className="px-3 py-2">

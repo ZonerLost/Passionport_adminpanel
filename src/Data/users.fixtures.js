@@ -1,5 +1,11 @@
+export const DEFAULT_PERMS = {
+  Fan: ["read"],
+  BrandOwner: ["read", "create", "update"],
+  Admin: ["read", "create", "update", "delete"],
+};
+
 const ROLES = ["Admin", "Fan", "BrandOwner"];
-const TYPES = ["Fan", "Brand"];
+const TYPES = ["Fan", "Brand", "Admin"];
 const STATUSES = ["active", "suspended", "banned", "pending"];
 
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];

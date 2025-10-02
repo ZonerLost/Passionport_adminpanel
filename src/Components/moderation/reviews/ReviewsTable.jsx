@@ -27,7 +27,7 @@ export default function ReviewsTable({
               <th className="px-3 py-2 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(110,86,207,0.15)]">
+          <tbody className="divide-y divide-[rgba(255,122,0,0.15)]">
             {data.rows.map((r) => (
               <tr key={r.id}>
                 <td className="px-3 py-2 text-slate-300">{r.campaign}</td>

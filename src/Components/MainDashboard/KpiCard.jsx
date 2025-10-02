@@ -20,7 +20,7 @@ export default function KpiCard({
     <div
       className="rounded-xl border p-4 flex items-center gap-3"
       style={{
-        borderColor: "rgba(110,86,207,0.25)",
+        borderColor: "rgba(255,122,0,0.25)",
         backgroundColor: "#0F1118",
       }}
     >

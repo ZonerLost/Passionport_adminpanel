@@ -40,7 +40,7 @@ function LogsFiltersBar({
         defaultValue={filters.query || ""}
         onChange={(e) => onSearch?.(e.target.value)}
         className="h-9 rounded-md px-3 bg-[#0F1014] text-sm text-white border"
-        style={{ borderColor: "rgba(110,86,207,0.12)" }}
+        style={{ borderColor: "rgba(255,122,0,0.12)" }}
         aria-label="Search delivery logs"
       />
 
@@ -48,7 +48,7 @@ function LogsFiltersBar({
         defaultValue={filters.channel || ""}
         onChange={(e) => onChannel?.(e.target.value)}
         className="h-9 rounded-md px-2 bg-[#0F1014] text-sm text-white border"
-        style={{ borderColor: "rgba(110,86,207,0.12)" }}
+        style={{ borderColor: "rgba(255,122,0,0.12)" }}
         aria-label="Filter by channel"
       >
         <option value="">All channels</option>
@@ -61,7 +61,7 @@ function LogsFiltersBar({
         defaultValue={filters.status || ""}
         onChange={(e) => onStatus?.(e.target.value)}
         className="h-9 rounded-md px-2 bg-[#0F1014] text-sm text-white border"
-        style={{ borderColor: "rgba(110,86,207,0.12)" }}
+        style={{ borderColor: "rgba(255,122,0,0.12)" }}
         aria-label="Filter by status"
       >
         <option value="">All statuses</option>
@@ -73,7 +73,7 @@ function LogsFiltersBar({
       <button
         type="button"
         onClick={() => onExport?.()}
-        className="h-9 px-3 rounded-md bg-gradient-to-r from-[#6E56CF] to-[#8B7BFF] text-white text-sm"
+        className="h-9 px-3 rounded-md bg-gradient-to-r from-[#ff7a00] to-[#ffb37a] text-white text-sm"
         aria-label="Export logs"
       >
         Export
@@ -97,7 +97,7 @@ function DeliveryLogsTable({ data = {}, onPage }) {
   return (
     <div
       className="overflow-x-auto rounded-lg border"
-      style={{ borderColor: "rgba(110,86,207,0.08)" }}
+      style={{ borderColor: "rgba(255,122,0,0.08)" }}
     >
       <table className="w-full text-sm">
         <thead className="text-left text-xs text-[#9DA1B5] uppercase">
@@ -149,7 +149,7 @@ function DeliveryLogsTable({ data = {}, onPage }) {
           <button
             onClick={() => onPage?.(Math.max(1, (data.page || 1) - 1))}
             className="px-2 py-1 rounded border"
-            style={{ borderColor: "rgba(110,86,207,0.08)" }}
+            style={{ borderColor: "rgba(255,122,0,0.08)" }}
           >
             Prev
           </button>
@@ -160,7 +160,7 @@ function DeliveryLogsTable({ data = {}, onPage }) {
           <button
             onClick={() => onPage?.((data.page || 1) + 1)}
             className="px-2 py-1 rounded border"
-            style={{ borderColor: "rgba(110,86,207,0.08)" }}
+            style={{ borderColor: "rgba(255,122,0,0.08)" }}
           >
             Next
           </button>
@@ -206,7 +206,7 @@ export default function MessagingNotificationsCMS() {
               tab === key ? "text-white" : "text-slate-300"
             }`}
             style={{
-              borderColor: "rgba(110,86,207,0.25)",
+              borderColor: "rgba(255,122,0,0.25)",
               background: tab === key ? "#0F1118" : "transparent",
             }}
           >

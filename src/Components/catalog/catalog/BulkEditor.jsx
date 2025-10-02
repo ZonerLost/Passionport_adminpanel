@@ -23,7 +23,7 @@ export default function BulkEditor({ open, selectedIds, onApply, onClose }) {
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-md overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-md overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >

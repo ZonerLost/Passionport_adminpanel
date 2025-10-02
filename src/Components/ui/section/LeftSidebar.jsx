@@ -11,6 +11,8 @@ import {
   MdCampaign,
   MdSettings,
   MdLogout,
+  MdFavorite,
+  MdBusiness,
 } from "react-icons/md";
 
 const COLORS = {
@@ -21,12 +23,16 @@ const COLORS = {
   text2: "#A3A7B7",
   gold: "#D4AF37",
   purple: "#6E56CF",
-  ring: "rgba(110,86,207,0.35)",
+  ring: "rgba(255,122,0,0.35)",
 };
 
 const menuItems = [
   { icon: MdDashboard, label: "Dashboard", path: "/" },
   { icon: MdPeople, label: "Users & Memberships", path: "/users-memberships" },
+  { icon: MdFavorite, label: "Fans", path: "/fans" },
+  // added Brands & Admins
+  { icon: MdBusiness, label: "Brands", path: "/brands" },
+  // Admins module removed — admin users are surfaced via Users directory
   // { icon: MdLibraryBooks, label: "Campaigns", path: "/content" },
   // { icon: MdEvent, label: "Content & messaging", path: "/live-events" },
   // { icon: MdLocalOffer, label: "Catalog & Partners (PTM)", path: "/deals" },
@@ -77,11 +83,7 @@ export default function LeftSidebar({ isOpen, setIsOpen }) {
           style={{ backgroundColor: COLORS.bg2 }}
         >
           <div className="flex text-center pt-3 w-full my-auto mx-auto items-center">
-            <img
-              src="/assets/Logo.png"
-              alt="Logo"
-              className="h-12"
-            />
+            <img src="/assets/Logo.png" alt="Logo" className="h-12" />
           </div>
 
           <button

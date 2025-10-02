@@ -11,7 +11,7 @@ export default function UserProfileDrawer({ open, user, onClose }) {
       onClick={onClose}
     >
       <div
-        className="absolute right-0 top-0 h-full w-full max-w-lg overflow-y-auto border-l"
+        className="absolute right-0 top-0 h-full w-full max-w-lg overflow-y-auto border-l shadow-md shadow-[#ff7a00]"
         style={{ backgroundColor: COLORS.card, borderColor: COLORS.ring }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -61,7 +61,7 @@ function Row({ k, v }) {
   return (
     <div
       className="rounded-lg border p-3"
-      style={{ borderColor: "rgba(110,86,207,0.25)", background: "#0F1118" }}
+      style={{ borderColor: "rgba(255,122,0,0.25)", background: "#0F1118" }}
     >
       <div className="text-xs text-slate-400">{k}</div>
       <div className="text-slate-200">{String(v ?? "-")}</div>

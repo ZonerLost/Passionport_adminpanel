@@ -1,8 +1,9 @@
 import React from "react";
 import Drawer from "../ui/common/Drawer";
 
-const ROLES = ["admin", "Fan", "BrandOwner"];
-const TYPES = ["brand", "fan", "creator"];
+// include Admin so the UI can create/edit Admin users
+const ROLES = ["Admin", "Support", "Finance", "Moderator", "BrandOwner", "Fan"];
+const TYPES = ["Brand", "Fan", "Admin", "Creator"];
 
 export default function UserDrawer({ open, onClose, initial, onSubmit }) {
   const [form, setForm] = React.useState({
@@ -46,7 +47,7 @@ export default function UserDrawer({ open, onClose, initial, onSubmit }) {
           </button>
           <button
             onClick={() => onSubmit?.(form)}
-            className="px-4 py-2 rounded-lg bg-[#6E56CF] text-white hover:bg-[#5b47b5]"
+            className="px-4 py-2 rounded-lg bg-[#ff7a00] text-white hover:bg-[#e26900]"
           >
             {initial ? "Save Changes" : "Create User"}
           </button>
@@ -59,7 +60,7 @@ export default function UserDrawer({ open, onClose, initial, onSubmit }) {
           <input
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
-            className="w-full rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(110,86,207,0.35)]"
+            className="w-full rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(255,122,0,0.35)]"
             placeholder="Jane Doe"
           />
         </div>
@@ -70,7 +71,7 @@ export default function UserDrawer({ open, onClose, initial, onSubmit }) {
             type="email"
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
-            className="w-full rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(110,86,207,0.35)]"
+            className="w-full rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(255,122,0,0.35)]"
             placeholder="jane@example.com"
           />
         </div>
@@ -80,7 +81,7 @@ export default function UserDrawer({ open, onClose, initial, onSubmit }) {
           <input
             value={form.handle}
             onChange={(e) => update("handle", e.target.value)}
-            className="w-full rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(110,86,207,0.35)]"
+            className="w-full rounded-lg bg-[#161821] border border-white/10 px-3 py-2 text-white outline-none focus:ring-2 focus:ring-[rgba(255,122,0,0.35)]"
             placeholder="@jane"
           />
         </div>

@@ -15,7 +15,7 @@ export default function Drawer({ open, onClose, title, children, footer }) {
       />
       {/* Panel */}
       <aside
-        className={`fixed right-0 top-0 z-50 h-full w-full max-w-md transform bg-[#12131A] shadow-xl transition-transform duration-300 ${
+        className={`fixed right-0 top-0 z-50 h-full w-full max-w-md transform bg-[#12131A] shadow-xl shadow-[#ff7a00] transition-transform duration-300 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"

@@ -1,5 +1,5 @@
 import React from "react";
-import { COLORS } from "../../ui/shared/theme";
+import { COLORS } from "../shared/theme";
 
 export default function SectionCard({ title, action, children }) {
   return (

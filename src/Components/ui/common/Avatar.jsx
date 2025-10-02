@@ -15,7 +15,7 @@ export default function Avatar({ name = "", src, size = 28 }) {
         width: size,
         height: size,
         background: "#0F1118",
-        border: "1px solid rgba(110,86,207,0.25)",
+        border: "1px solid rgba(255,122,0,0.25)",
       }}
     >
       {src ? (

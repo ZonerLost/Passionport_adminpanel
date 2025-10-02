@@ -7,25 +7,27 @@ export default function RevenueSnapshot({ data }) {
   const total = data.byMethod.reduce((s, m) => s + m.gross, 0);
   return (
     <SectionCard title="Revenue & Payout Snapshot">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="md:col-span-2">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+        <div className="xl:col-span-2">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             {data.byMethod.map((m) => (
               <div
                 key={m.method}
-                className="rounded-xl border p-4"
+                className="rounded-xl border p-5 min-h-[100px] flex flex-col justify-between"
                 style={{
-                  borderColor: "rgba(110,86,207,0.25)",
+                  borderColor: "rgba(255,122,0,0.25)",
                   background: "#0F1118",
                 }}
               >
-                <div className="text-slate-300 text-xs uppercase">
+                <div className="text-slate-300 text-xs uppercase mb-2">
                   {m.method}
                 </div>
-                <div className="text-white text-lg font-semibold">
+                <div className="text-white text-sm font-semibold leading-tight break-words">
                   {fmtCurrency(m.gross)}
                 </div>
-                <div className="text-xs text-slate-400">{m.pct}% of total</div>
+                <div className="text-xs text-slate-400 mt-1">
+                  {m.pct}% of total
+                </div>
               </div>
             ))}
           </div>
@@ -33,7 +35,7 @@ export default function RevenueSnapshot({ data }) {
         <div
           className="rounded-xl border p-4"
           style={{
-            borderColor: "rgba(110,86,207,0.25)",
+            borderColor: "rgba(255,122,0,0.25)",
             background: "#0F1118",
           }}
         >
@@ -47,7 +49,7 @@ export default function RevenueSnapshot({ data }) {
               <span>Disputes open</span>
               <b>{data.disputesOpen}</b>
             </div>
-            <div className="flex items-center justify-between pt-2 border-t border-[rgba(110,86,207,0.15)]">
+            <div className="flex items-center justify-between pt-2 border-t border-[rgba(255,122,0,0.15)]">
               <span>Total gross</span>
               <b>{fmtCurrency(total)}</b>
             </div>
